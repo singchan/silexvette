@@ -1,4 +1,10 @@
 
+        /* for firefox */
+        .paged-element-hidden.animated{
+            animation-name: none !important;
+        }
+        /* */
+    
         .body-initial {
             background-color: rgb(38, 38, 38); 
         }
@@ -12,10 +18,10 @@
             background-color: rgb(255, 255, 255); 
         }
         .silex-id-1481488538020-4 {
-            min-height: 92px; 
             width: 619px; 
-            top: 30px; 
-            left: 163px; 
+            top: 56px; 
+            left: 165px; 
+            min-height: 92px; 
         }
         .silex-id-1474394605264-1 {
             min-height: 100px; 
