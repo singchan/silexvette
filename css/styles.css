@@ -110,9 +110,9 @@
             background-attachment: fixed; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394621032-2 {
-            width: 435px; 
+            width: 100%; 
             top: 0px; 
-            left: 14px; 
+            left: 0px; 
             min-height: 1126px; 
             background-color: rgba(39,39,39,1); 
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
@@ -124,13 +124,14 @@
             top: 19px; 
             left: 19px; 
             min-height: 544px; 
-            background-color: rgba(180,180,180,0.6823529411764706); 
+            background-color: transparent; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481567566584-0 {
             left: 11px; 
             top: -146px; 
             width: 416px; 
             min-height: 1079px; 
+            background-color: transparent; 
         }
         }
     
