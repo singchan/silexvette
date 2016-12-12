@@ -1,25 +1,25 @@
 
         .body-initial {
-            background-color: rgba(14,14,14,1); 
+            background-color: rgba(0,0,0,1); 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.body-initial {
-            background-color: rgba(37,37,37,1); 
+            background-color: rgba(0,0,0,1); 
         }
         }.silex-id-1478366444112-1 {
-            min-height: 171px; 
+            min-height: 126px; 
             top: 100px; 
             left: NaNpx; 
             background-color: transparent; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1478366444112-1 {
-            min-height: 169px; 
+            min-height: 192px; 
         }
         }.silex-id-1478366444112-0 {
-            width: 100%; 
+            width: 1062px; 
             top: 0px; 
             left: 0px; 
-            min-height: 171px; 
-            background-color: rgba(37,37,37,1); 
+            min-height: 126px; 
+            background-color: transparent; 
             background-size: cover; 
             background-repeat: no-repeat; 
             background-position: center center; 
@@ -28,71 +28,83 @@
             top: 0px; 
             left: 12px; 
             width: 438px; 
-            min-height: 169px; 
+            min-height: 192px; 
             background-color: transparent; 
         }
         }.silex-id-1481565092357-2 {
             min-height: 117px; 
             width: 513px; 
-            top: 17px; 
-            left: 10px; 
+            top: 5px; 
+            left: 17px; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481565092357-2 {
-            top: 24px; 
-            left: 11px; 
+            top: 1408px; 
+            left: 34px; 
             width: 416px; 
             min-height: 122px; 
         }
+        }.silex-id-1481566517094-4 {
+            min-height: 49px; 
+            width: 89px; 
+            top: 67px; 
+            left: 778px; 
+            background-color: transparent; 
+        }
+        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481566517094-4 {
+            left: 422px; 
+            top: 1464px; 
+        }
+        }.silex-id-1481566609608-5 {
+            min-height: 49px; 
+            width: 89px; 
+            top: 67px; 
+            left: 870px; 
+            background-color: transparent; 
+        }
+        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481566609608-5 {
+            left: 312px; 
+            top: 1986px; 
+        }
+        }.silex-id-1481566621330-6 {
+            min-height: 49px; 
+            width: 89px; 
+            top: 67px; 
+            left: 962px; 
+            background-color: transparent; 
+        }
+        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481566621330-6 {
+            left: 166px; 
+            top: 1986px; 
+        }
         }.silex-id-1474394621033-3 {
-            min-height: 473px; 
+            min-height: 657px; 
             top: 5px; 
             left: 0px; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394621033-3 {
-            min-height: 1087px; 
+            min-height: 786px; 
+            top: 229px; 
+            left: 0px; 
         }
         }.silex-id-1474394621032-2 {
-            width: 100%; 
-            top: -1px; 
+            width: 1062px; 
+            top: 0px; 
             left: 0px; 
-            min-height: 473px; 
+            min-height: 657px; 
             background-color: rgba(39,39,39,1); 
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
             background-size: cover; 
             background-attachment: fixed; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394621032-2 {
+            width: 438px; 
             top: 0px; 
             left: 12px; 
-            width: 438px; 
-            min-height: 1087px; 
+            min-height: 786px; 
+            background-color: rgba(39,39,39,1); 
+            background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
+            background-size: cover; 
+            background-attachment: fixed; 
         }
-        }.silex-id-1478366450713-3 {
-            min-height: 20px; 
-            top: 100px; 
-            left: NaNpx; 
-            background-color: transparent; 
-        }
-        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1478366450713-3 {
-            min-height: 20px; 
-        }
-        }.silex-id-1478366450713-2 {
-            min-height: 20px; 
-            background-color: transparent; 
-            width: 1200px; 
-            top: 0px; 
-            left: 0px; 
-        }
-        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1478366450713-2 {
-            top: 0px; 
-            left: 12px; 
-            width: 438px; 
-            min-height: 20px; 
-        }
-        }.silex-id-1442914737143-3 {
-            min-height: 53px; 
-            width: 349px; 
-            top: 682px; 
-            left: 393px; 
         }
     
