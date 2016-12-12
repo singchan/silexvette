@@ -27,9 +27,15 @@
         document.write('<link href="css/animate.min.css" rel="stylesheet">');
         ////////////////////////////////////
         $(function() {
-            setTimeout(function() {
-                $('body').addClass('loaded');
-            }, 0);
+            // auto play all pages
+            var idx = 0;
+            var pages = $('.page-element');
+            setInterval(function() {
+                idx++;
+                if(idx >= pages.length) idx = 0;
+                var pageElement = pages.get(idx);
+                window.location.hash= '#!' + pageElement.id;
+            }, 5000);
         })
     </script>
     <style class="silex-inline-styles" type="text/css">
