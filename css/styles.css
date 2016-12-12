@@ -12,7 +12,7 @@
             background-color: transparent; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1478366444112-1 {
-            min-height: 222px; 
+            min-height: 88px; 
         }
         }.silex-id-1478366444112-0 {
             width: 1062px; 
@@ -28,27 +28,14 @@
             top: 0px; 
             left: 12px; 
             width: 438px; 
-            min-height: 222px; 
+            min-height: 88px; 
             background-color: transparent; 
             background-size: contain; 
         }
-        }.silex-id-1481568071504-1 {
-            width: 337px; 
-            top: -4px; 
-            left: -2px; 
-            opacity: 0.65; 
-            min-height: 213px; 
-        }
-        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481568071504-1 {
-            top: 1499px; 
-            left: 151px; 
-            width: 299px; 
-            min-height: 125px; 
-        }
         }.silex-id-1481569252097-3 {
             width: 282px; 
-            top: 24px; 
-            left: 302px; 
+            top: 21px; 
+            left: 57px; 
             min-height: 74px; 
             background-color: transparent; 
         }
@@ -90,12 +77,12 @@
             top: 1497px; 
         }
         }.silex-id-1474394621033-3 {
-            min-height: 577px; 
+            min-height: 616px; 
             top: 5px; 
             left: 0px; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394621033-3 {
-            min-height: 1126px; 
+            min-height: 1181px; 
             top: 252px; 
             left: 0px; 
         }
@@ -103,17 +90,17 @@
             width: 100%; 
             top: 0px; 
             left: 0px; 
-            min-height: 577px; 
+            min-height: 616px; 
             background-color: rgba(39,39,39,1); 
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
             background-size: cover; 
             background-attachment: fixed; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394621032-2 {
-            width: 100%; 
+            width: 438px; 
             top: 0px; 
-            left: 0px; 
-            min-height: 1126px; 
+            left: 12px; 
+            min-height: 1181px; 
             background-color: rgba(39,39,39,1); 
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
             background-size: cover; 
@@ -124,15 +111,16 @@
             top: 19px; 
             left: 19px; 
             min-height: 544px; 
-            background-color: rgba(161,1,1,1); 
+            background-color: rgba(18,18,18,1); 
             opacity: 0.65; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481567566584-0 {
-            left: 11px; 
-            top: -146px; 
             width: 416px; 
-            min-height: 1079px; 
-            background-color: rgba(161,1,1,1); 
+            top: 16px; 
+            left: 11px; 
+            opacity: 0.65; 
+            min-height: 1149px; 
+            background-color: rgba(18,18,18,1); 
         }
         }
     
