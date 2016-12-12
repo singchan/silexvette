@@ -12,12 +12,12 @@
             background-color: transparent; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1478366444112-1 {
-            min-height: 88px; 
+            min-height: 106px; 
         }
         }.silex-id-1478366444112-0 {
-            width: 381px; 
+            width: 100%; 
             top: 0px; 
-            left: 270px; 
+            left: 0px; 
             min-height: 109px; 
             background-color: transparent; 
             background-size: cover; 
@@ -28,7 +28,7 @@
             top: 0px; 
             left: 12px; 
             width: 438px; 
-            min-height: 88px; 
+            min-height: 106px; 
             background-color: transparent; 
             background-size: contain; 
         }
@@ -82,7 +82,7 @@
             left: 0px; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394621033-3 {
-            min-height: 1181px; 
+            min-height: 1107px; 
             top: 252px; 
             left: 0px; 
         }
@@ -97,10 +97,10 @@
             background-attachment: fixed; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394621032-2 {
-            width: 100%; 
+            width: 438px; 
             top: 0px; 
-            left: 0px; 
-            min-height: 1181px; 
+            left: 12px; 
+            min-height: 1107px; 
             background-color: rgba(39,39,39,1); 
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
             background-size: cover; 
@@ -116,8 +116,8 @@
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481567566584-0 {
             width: 97%; 
-            top: 19px; 
-            left: 19px; 
+            top: 1380px; 
+            left: 23px; 
             opacity: 0.65; 
             min-height: 90%; 
             background-color: rgba(18,18,18,1); 
