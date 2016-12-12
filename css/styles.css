@@ -11,14 +11,14 @@
             left: 0px; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394621033-3 {
-            min-height: 1378px; 
-            top: 252px; 
+            min-height: 1450px; 
+            top: 60px; 
             left: 0px; 
         }
         }.silex-id-1474394621032-2 {
             width: 100%; 
             top: 0px; 
-            left: 11px; 
+            left: 530px; 
             background-color: rgba(39,39,39,1); 
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
             background-size: cover; 
@@ -31,7 +31,7 @@
             width: 438px; 
             top: 0px; 
             left: 12px; 
-            min-height: 1378px; 
+            min-height: 1450px; 
             background-color: rgba(39,39,39,1); 
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
             background-size: cover; 
@@ -72,16 +72,28 @@
             width: 385px; 
             min-height: 112px; 
         }
+        }.silex-id-1481584423001-4 {
+            min-height: 83px; 
+            width: 617px; 
+            top: 76px; 
+            left: -12px; 
+        }
+        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481584423001-4 {
+            top: 1304px; 
+            left: 10px; 
+            width: 396px; 
+            min-height: 75px; 
+        }
         }.silex-id-1481566621330-6 {
             width: 89px; 
             top: 32px; 
-            left: 191px; 
+            left: 9px; 
             min-height: 61px; 
             background-color: transparent; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481566621330-6 {
             left: 350px; 
-            top: 3014px; 
+            top: 2859px; 
         }
         }.silex-id-1481566609608-5 {
             width: 89px; 
@@ -91,19 +103,19 @@
             background-color: transparent; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481566609608-5 {
-            left: 489px; 
-            top: 2984px; 
+            left: 246px; 
+            top: 2754px; 
         }
         }.silex-id-1481566517094-4 {
             width: 89px; 
             top: 32px; 
-            left: 8px; 
+            left: 191px; 
             min-height: 61px; 
             background-color: transparent; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481566517094-4 {
             left: 350px; 
-            top: 2983px; 
+            top: 2723px; 
         }
         }
     
