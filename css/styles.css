@@ -15,7 +15,7 @@
             min-height: 192px; 
         }
         }.silex-id-1478366444112-0 {
-            width: 1062px; 
+            width: 100%; 
             top: 0px; 
             left: 0px; 
             min-height: 126px; 
@@ -30,24 +30,37 @@
             width: 438px; 
             min-height: 192px; 
             background-color: transparent; 
+            background-size: contain; 
         }
-        }.silex-id-1481565092357-2 {
-            min-height: 117px; 
-            width: 513px; 
-            top: 5px; 
-            left: 17px; 
+        }.silex-id-1481568071504-1 {
+            width: 243px; 
+            top: 1px; 
+            left: 6px; 
+            opacity: 0.65; 
+            min-height: 120px; 
         }
-        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481565092357-2 {
-            top: 1408px; 
-            left: 34px; 
-            width: 416px; 
-            min-height: 122px; 
+        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481568071504-1 {
+            top: 1px; 
+            left: 70px; 
+            width: 299px; 
+            min-height: 125px; 
+        }
+        }.silex-id-1481569252097-3 {
+            width: 343px; 
+            top: 50px; 
+            left: 65%; 
+            min-height: 64px; 
+            background-color: transparent; 
+        }
+        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481569252097-3 {
+            left: 107px; 
+            top: 1451px; 
         }
         }.silex-id-1481566517094-4 {
             min-height: 49px; 
             width: 89px; 
-            top: 67px; 
-            left: 778px; 
+            top: 9px; 
+            left: 12px; 
             background-color: transparent; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481566517094-4 {
@@ -55,34 +68,34 @@
             top: 1464px; 
         }
         }.silex-id-1481566609608-5 {
-            min-height: 49px; 
             width: 89px; 
-            top: 67px; 
-            left: 870px; 
+            top: 9px; 
+            left: 127px; 
+            min-height: 49px; 
             background-color: transparent; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481566609608-5 {
-            left: 312px; 
-            top: 1986px; 
+            left: 428px; 
+            top: 1502px; 
         }
         }.silex-id-1481566621330-6 {
             min-height: 49px; 
             width: 89px; 
-            top: 67px; 
-            left: 962px; 
+            top: 8px; 
+            left: 243px; 
             background-color: transparent; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481566621330-6 {
-            left: 166px; 
-            top: 1986px; 
+            left: 313px; 
+            top: 1502px; 
         }
         }.silex-id-1474394621033-3 {
-            min-height: 550px; 
+            min-height: 614px; 
             top: 5px; 
             left: 0px; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394621033-3 {
-            min-height: 1281px; 
+            min-height: 1120px; 
             top: 252px; 
             left: 0px; 
         }
@@ -90,7 +103,7 @@
             width: 100%; 
             top: 0px; 
             left: 0px; 
-            min-height: 550px; 
+            min-height: 614px; 
             background-color: rgba(39,39,39,1); 
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
             background-size: cover; 
@@ -100,7 +113,7 @@
             width: 435px; 
             top: 0px; 
             left: 14px; 
-            min-height: 1281px; 
+            min-height: 1120px; 
             background-color: rgba(39,39,39,1); 
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
             background-size: cover; 
@@ -110,7 +123,7 @@
             width: 97%; 
             top: 19px; 
             left: 19px; 
-            min-height: 473px; 
+            min-height: 544px; 
             background-color: rgba(180,180,180,0.6823529411764706); 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481567566584-0 {
@@ -119,18 +132,30 @@
             width: 416px; 
             min-height: 1079px; 
         }
-        }.silex-id-1481568071504-1 {
-            min-height: 455px; 
-            width: 650px; 
-            top: 26px; 
-            left: 221px; 
-            opacity: 0.45; 
+        }.silex-id-1481569163117-2 {
+            width: 1062px; 
+            top: 747px; 
+            left: 0px; 
+            min-height: 88px; 
+            background-color: transparent; 
         }
-        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481568071504-1 {
-            top: 1099px; 
-            left: 14px; 
-            width: 407px; 
-            min-height: 176px; 
+        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481569163117-2 {
+            top: 1372px; 
+            left: 12px; 
+            width: 438px; 
+            min-height: 72px; 
+        }
+        }.silex-id-1481565092357-2 {
+            width: 289px; 
+            top: 9px; 
+            left: 72%; 
+            min-height: 66px; 
+        }
+        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481565092357-2 {
+            top: 0px; 
+            left: 51px; 
+            width: 337px; 
+            min-height: 88px; 
         }
         }
     
