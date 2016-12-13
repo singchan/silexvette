@@ -40,12 +40,12 @@
             top: 0px; 
             left: 0px; 
             background-color: transparent; 
-            background-size: contain; 
+            background-size: cover; 
             background-attachment: fixed; 
             min-height: 691px; 
             background-repeat: no-repeat; 
             background-position: center center; 
-            background-image: url('../assets/c7-wireframe-background.jpg'); 
+            background-image: url('../assets/SuoerchargerBackgroundLineDraw.png'); 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394621032-2 {
             width: 438px; 
