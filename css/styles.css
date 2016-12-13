@@ -38,7 +38,7 @@
             left: 0px; 
         }
         }.silex-id-1474394621032-2 {
-            width: 1062px; 
+            width: 100%; 
             top: 0px; 
             left: 0px; 
             background-color: transparent; 
@@ -85,6 +85,16 @@
             top: 1799px; 
             width: 385px; 
             min-height: 91px; 
+        }
+        }.silex-id-1481606282694-4 {
+            min-height: 113px; 
+            width: 82px; 
+            top: -17px; 
+            left: 6px; 
+        }
+        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481606282694-4 {
+            left: 463px; 
+            top: 1715px; 
         }
         }.silex-id-1481566621330-6 {
             width: 89px; 
@@ -136,7 +146,7 @@
             width: 291px; 
             background-color: transparent; 
             top: 4px; 
-            left: 278px; 
+            left: 456px; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481588393482-0 {
             width: 376px; 
@@ -146,7 +156,7 @@
             background-color: transparent; 
         }
         }.silex-id-1481567566584-0 {
-            width: 1062px; 
+            width: 100%; 
             top: 142px; 
             left: 0px; 
             opacity: 0.75; 
