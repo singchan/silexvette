@@ -39,6 +39,12 @@
                 $('body').addClass('loaded');
             }, 0);
         });
+        
+        $(document).ready(function(){
+    $(this).each(function() {
+        animationHover(this, 'bounce');
+    });
+});
     //////////////////////////////////// 
 // Hover.js 
 //document.write ('<link href = "./css/hover-min.css"rel="stylesheet">');
