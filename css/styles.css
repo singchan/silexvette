@@ -13,7 +13,6 @@
 .paged-element-hidden.animated{
     animation-name: none !important;
 }
-/* */
     
         .body-initial {
             background-color: rgba(0,0,0,1); 
@@ -41,12 +40,12 @@
             top: 0px; 
             left: 0px; 
             background-color: transparent; 
-            background-size: cover; 
+            background-size: contain; 
             background-attachment: fixed; 
             min-height: 691px; 
             background-repeat: no-repeat; 
             background-position: center center; 
-            background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
+            background-image: url('../assets/c7-wireframe-background.jpg'); 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394621032-2 {
             width: 438px; 
@@ -159,9 +158,11 @@
             width: 100%; 
             top: 142px; 
             left: 0px; 
-            opacity: 0.75; 
+            opacity: 0.9; 
             min-height: 519px; 
             background-color: rgba(0,0,0,1); 
+            background-repeat: no-repeat; 
+            background-size: cover; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481567566584-0 {
             width: 375px; 
@@ -177,6 +178,7 @@
             left: 0px; 
             min-height: 496px; 
             background-color: transparent; 
+            background-size: cover; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481599151352-8 {
             left: 21px; 
