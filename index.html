@@ -40,11 +40,7 @@
             }, 0);
         });
         
-        $(document).ready(function(){
-    $(this).each(function() {
-        animationHover(this, 'bounce');
-    });
-});
+        
     //////////////////////////////////// 
 // Hover.js 
 //document.write ('<link href = "./css/hover-min.css"rel="stylesheet">');
@@ -76,6 +72,11 @@ function animationClick(element, animation){
   
         });
 }
+
+    $(document).ready(function(){
+    $(this).each(function() {
+        animationHover(this, 'bounce');
+    });
     </script>
     <style class="silex-inline-styles" type="text/css">
         .body-initial {
