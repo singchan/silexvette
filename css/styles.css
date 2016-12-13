@@ -16,29 +16,34 @@
 /* */
     
         .body-initial {
-            background-color: rgba(0,0,0,1); 
+            background-color: transparent; 
+            background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
+            background-attachment: fixed; 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-position: center center; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.body-initial {
             background-color: rgba(0,0,0,1); 
         }
         }.silex-id-1474394621033-3 {
-            min-height: 641px; 
+            min-height: 658px; 
             top: 0px; 
             left: 0px; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394621033-3 {
-            min-height: 1523px; 
+            min-height: 1586px; 
             top: 60px; 
             left: 0px; 
         }
         }.silex-id-1474394621032-2 {
-            width: 100%; 
+            width: 1062px; 
             top: 0px; 
             left: 0px; 
-            background-color: rgba(39,39,39,1); 
+            background-color: transparent; 
             background-size: cover; 
             background-attachment: fixed; 
-            min-height: 641px; 
+            min-height: 658px; 
             background-repeat: no-repeat; 
             background-position: center center; 
         }
@@ -49,7 +54,7 @@
             background-color: transparent; 
             background-size: cover; 
             background-attachment: fixed; 
-            min-height: 1523px; 
+            min-height: 1586px; 
             background-repeat: no-repeat; 
             background-position: center center; 
         }
@@ -59,12 +64,13 @@
             left: 0px; 
             min-height: 17%; 
             background-color: transparent; 
+            background-size: cover; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481579870535-3 {
             width: 416px; 
-            top: -6px; 
+            top: 5px; 
             left: 11px; 
-            min-height: 1506px; 
+            min-height: 1514px; 
             background-color: transparent; 
         }
         }.silex-id-1481578243399-2 {
@@ -139,12 +145,12 @@
             background-color: transparent; 
         }
         }.silex-id-1481567566584-0 {
-            width: 100%; 
+            width: 1062px; 
             top: 142px; 
             left: 0px; 
             opacity: 0.75; 
-            min-height: 486px; 
-            background-color: rgba(18,18,18,1); 
+            min-height: 519px; 
+            background-color: rgba(0,0,0,1); 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481567566584-0 {
             width: 375px; 
@@ -155,11 +161,11 @@
             background-color: rgba(18,18,18,1); 
         }
         }.silex-id-1481599151352-8 {
-            width: 100%; 
+            width: 1062px; 
             top: 142px; 
             left: 0px; 
-            min-height: 486px; 
-            background-color: rgba(12,12,12,1); 
+            min-height: 496px; 
+            background-color: transparent; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481599151352-8 {
             left: 21px; 
