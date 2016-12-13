@@ -18,7 +18,7 @@
         .body-initial {
             background-color: transparent; 
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
-            background-attachment: scroll; 
+            background-attachment: fixed; 
             background-size: cover; 
             background-repeat: no-repeat; 
             background-position: center center; 
@@ -28,7 +28,7 @@
             background-size: auto; 
         }
         }.silex-id-1474394621033-3 {
-            min-height: 658px; 
+            min-height: 669px; 
             top: 0px; 
             left: 0px; 
         }
@@ -38,13 +38,13 @@
             left: 0px; 
         }
         }.silex-id-1474394621032-2 {
-            width: 100%; 
+            width: 1062px; 
             top: 0px; 
             left: 0px; 
             background-color: transparent; 
             background-size: cover; 
             background-attachment: fixed; 
-            min-height: 658px; 
+            min-height: 669px; 
             background-repeat: no-repeat; 
             background-position: center center; 
         }
