@@ -32,11 +32,11 @@
             left: 0px; 
         }
         }.silex-id-1474394621032-2 {
-            width: 1126px; 
+            width: 100%; 
             top: 0px; 
             left: 0px; 
             background-color: rgba(39,39,39,1); 
-            background-image: url('../assets/DynoBackgroundBlurred.jpg'); 
+            background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
             background-size: cover; 
             background-attachment: fixed; 
             min-height: 835px; 
@@ -138,7 +138,7 @@
             background-color: transparent; 
         }
         }.silex-id-1481567566584-0 {
-            width: 1115px; 
+            width: 100%; 
             top: 140px; 
             left: 0px; 
             opacity: 0.75; 
