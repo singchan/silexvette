@@ -44,7 +44,7 @@
             background-attachment: fixed; 
             min-height: 993px; 
             background-repeat: no-repeat; 
-            background-position: center center; 
+            background-position: center left; 
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394621032-2 {
