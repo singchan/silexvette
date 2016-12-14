@@ -46,6 +46,13 @@
 document.write ('<link href = "./css/hover-min.css"rel="stylesheet">');
 ////////////////////////////////////
 
+$(document).ready(function(){
+    $('image-element').hover(function(){
+        $(this).addClass('animated bounce');
+    });
+});
+
+
 function animationHover(element, animation){
     element = $(element);
     element.hover(
