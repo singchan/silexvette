@@ -1,36 +1,62 @@
 
         .body-initial {
-            background-color: rgba(255,255,255,1); 
+            background-color: rgba(16,16,16,1); 
+            background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
+            background-attachment: fixed; 
+            background-size: cover; 
+            background-repeat: no-repeat; 
         }
         .silex-id-1478366444112-1 {
-            min-height: 235px; 
+            min-height: 91px; 
             top: 100px; 
             left: NaNpx; 
             background-color: transparent; 
         }
         .silex-id-1478366444112-0 {
-            min-height: 235px; 
+            width: 1062px; 
+            top: 0px; 
+            left: 0px; 
+            min-height: 91px; 
             background-color: transparent; 
-            width: 1200px; 
-            background-image: url('../assets/Picture1.png'); 
             background-size: cover; 
             background-repeat: no-repeat; 
             background-attachment: scroll; 
-            background-position: center left; 
-            top: 0px; 
-            left: 0px; 
+            background-position: center center; 
+        }
+        .silex-id-1481744246749-4 {
+            min-height: 49px; 
+            width: 132px; 
+            top: 19px; 
+            left: 32px; 
+        }
+        .silex-id-1481744263601-5 {
+            min-height: 49px; 
+            width: 132px; 
+            top: 19px; 
+            left: 167px; 
+        }
+        .silex-id-1481744274248-6 {
+            min-height: 49px; 
+            width: 132px; 
+            top: 20px; 
+            left: 310px; 
         }
         .silex-id-1474394621033-3 {
-            min-height: 636px; 
+            min-height: 477px; 
             top: 5px; 
             left: 0px; 
         }
         .silex-id-1474394621032-2 {
-            min-height: 636px; 
-            background-color: transparent; 
-            width: 1200px; 
+            width: 1062px; 
             top: 0px; 
             left: 0px; 
+            min-height: 477px; 
+            background-color: transparent; 
+            background-repeat: no-repeat; 
+            background-position: top left; 
+            background-image: url('../assets/AandALogoOldStyleRevised.png'); 
+            background-size: contain; 
+            background-attachment: scroll; 
         }
         .silex-id-1478366450713-3 {
             min-height: 100px; 
@@ -39,9 +65,11 @@
             background-color: transparent; 
         }
         .silex-id-1478366450713-2 {
+            width: 100%; 
+            top: 0px; 
+            left: 0px; 
             min-height: 100px; 
             background-color: transparent; 
-            width: 1200px; 
         }
         .silex-id-1442914737143-3 {
             min-height: 53px; 
