@@ -3,6 +3,7 @@
     
         .silex-id-1439547078652-33 {
             cursor: auto; 
+            background-image: url('../assets/SuoerchargerBackgroundLineDraw.png'); 
             background-color: rgba(0,0,0,1); 
             border-top-color: rgb(0, 0, 0); 
             border-right-color: rgb(0, 0, 0); 
@@ -48,9 +49,9 @@
         .silex-id-1439547078040-27 {
             top: 0px; 
             left: 0px; 
-            width: 1012px; 
+            width: 100%; 
             position: relative; 
-            background-color: transparent; 
+            background-color: rgba(0,0,0,0.9058823529411765); 
             background-repeat-x: repeat; 
             background-repeat-y: repeat; 
             min-height: 873px; 
@@ -59,6 +60,7 @@
             background-size: cover; 
             margin-left: auto; 
             margin-right: auto; 
+            border-color: #000000; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1439547078040-27 {
             top: 70px; 
@@ -96,6 +98,7 @@
             min-height: 600px; 
             margin-left: auto; 
             margin-right: auto; 
+            border-color: #c0c0c0; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1439547077940-26 {
             top: 91px; 
@@ -116,7 +119,10 @@
             top: 153px; 
             left: 18px; 
         }
-        .silex-id-1439547077839-25 {
+        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481754997787-7 {
+            background-color: transparent; 
+        }
+        }.silex-id-1439547077839-25 {
             background-color: transparent; 
             top: 164px; 
             left: 358px; 
@@ -128,6 +134,7 @@
             left: 11px; 
             width: 401px; 
             min-height: 84px; 
+            background-color: transparent; 
         }
         }.silex-id-1439547077120-18 {
             top: 402px; 
@@ -137,10 +144,11 @@
             min-height: 167px; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1439547077120-18 {
-            top: 607px; 
-            left: 11px; 
-            width: 423px; 
-            min-height: 84px; 
+            top: 638px; 
+            left: 10px; 
+            width: 397px; 
+            min-height: 128px; 
+            background-color: transparent; 
         }
         }.silex-id-1439547077020-17 {
             top: 402px; 
@@ -154,6 +162,7 @@
             left: 11px; 
             width: 423px; 
             min-height: 84px; 
+            background-color: transparent; 
         }
         }.silex-id-1439547077223-19 {
             background-color: transparent; 
@@ -167,6 +176,7 @@
             left: 11px; 
             width: 423px; 
             min-height: 84px; 
+            background-color: transparent; 
         }
         }.silex-id-1439547076919-16 {
             top: 791px; 
@@ -297,7 +307,7 @@
             min-height: 33px; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1439547076816-15 {
-            background-color: rgba(2,24,57,0.803921568627451); 
+            background-color: transparent; 
             top: 1103px; 
             left: 18px; 
             width: 409px; 
