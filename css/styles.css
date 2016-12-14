@@ -26,7 +26,7 @@
             background-size: auto; 
         }
         }.silex-id-1474394621033-3 {
-            min-height: 691px; 
+            min-height: 993px; 
             top: 0px; 
             left: 0px; 
         }
@@ -42,7 +42,7 @@
             background-color: transparent; 
             background-size: cover; 
             background-attachment: fixed; 
-            min-height: 691px; 
+            min-height: 993px; 
             background-repeat: no-repeat; 
             background-position: center center; 
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
@@ -107,24 +107,6 @@
             left: 350px; 
             top: 2723px; 
         }
-        }.silex-id-1481567566584-0 {
-            width: 100%; 
-            top: 142px; 
-            left: 0px; 
-            opacity: 0.75; 
-            min-height: 519px; 
-            background-color: rgba(0,0,0,1); 
-            background-repeat: no-repeat; 
-            background-size: cover; 
-        }
-        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481567566584-0 {
-            width: 375px; 
-            top: 343px; 
-            left: 20px; 
-            opacity: 0.65; 
-            min-height: 1907px; 
-            background-color: rgba(18,18,18,1); 
-        }
         }.silex-id-1481606282694-4 {
             min-height: 61px; 
             width: 61px; 
@@ -172,6 +154,24 @@
             left: 19px; 
             min-height: 76px; 
             background-color: transparent; 
+        }
+        }.silex-id-1481567566584-0 {
+            width: 100%; 
+            top: 142px; 
+            left: 0px; 
+            opacity: 0.75; 
+            min-height: 772px; 
+            background-color: rgba(0,0,0,1); 
+            background-repeat: no-repeat; 
+            background-size: cover; 
+        }
+        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481567566584-0 {
+            width: 375px; 
+            top: 343px; 
+            left: 20px; 
+            opacity: 0.65; 
+            min-height: 1907px; 
+            background-color: rgba(18,18,18,1); 
         }
         }.silex-id-1481599151352-8 {
             width: 1062px; 
