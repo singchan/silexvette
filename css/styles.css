@@ -10,7 +10,7 @@
             background-color: rgba(8,8,8,0.9764705882352941); 
         }
         }.silex-id-1474394621033-3 {
-            min-height: 720px; 
+            min-height: 745px; 
             top: 0px; 
             left: 0px; 
             background-color: transparent; 
@@ -18,14 +18,14 @@
             background-attachment: fixed; 
             background-size: cover; 
             background-repeat: no-repeat; 
-            background-position: bottom right; 
+            background-position: bottom center; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394621033-3 {
             min-height: 1270px; 
         }
         }.silex-id-1474394621032-2 {
             position: relative; 
-            min-height: 720px; 
+            min-height: 745px; 
             background-color: rgba(0,0,0,0.6745098039215687); 
             background-size: cover; 
             background-repeat: no-repeat; 
@@ -75,24 +75,10 @@
             width: 395px; 
             min-height: 65px; 
         }
-        }.silex-id-1481762628607-8 {
-            min-height: 233px; 
-            width: 469px; 
-            top: 477px; 
-            left: 481px; 
-            opacity: 0.75; 
-            background-color: transparent; 
-        }
-        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481762628607-8 {
-            left: 10px; 
-            top: 139px; 
-            width: 397px; 
-            min-height: 199px; 
-        }
         }.silex-id-1481764807368-12 {
             min-height: 290px; 
             width: 315px; 
-            background-color: transparent; 
+            background-color: rgba(0,0,0,0.2823529411764706); 
             top: 137px; 
             left: 4px; 
         }
@@ -111,7 +97,7 @@
         .silex-id-1481764879631-13 {
             min-height: 290px; 
             width: 315px; 
-            background-color: transparent; 
+            background-color: rgba(0,0,0,0.2823529411764706); 
             top: 137px; 
             left: 325px; 
         }
@@ -130,7 +116,7 @@
         .silex-id-1481764936117-14 {
             min-height: 290px; 
             width: 315px; 
-            background-color: transparent; 
+            background-color: rgba(0,0,0,0.2823529411764706); 
             top: 137px; 
             left: 645px; 
         }
@@ -146,9 +132,23 @@
             left: 121px; 
             min-height: 45px; 
         }
-        .silex-id-1474394605264-1 {
-            min-height: 77px; 
-            top: 716px; 
+        .silex-id-1481762628607-8 {
+            min-height: 313px; 
+            width: 658px; 
+            top: 431px; 
+            left: 141px; 
+            opacity: 0.45; 
+            background-color: transparent; 
+        }
+        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1481762628607-8 {
+            left: 10px; 
+            top: 139px; 
+            width: 397px; 
+            min-height: 199px; 
+        }
+        }.silex-id-1474394605264-1 {
+            min-height: 51px; 
+            top: 745px; 
             left: 0px; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394605264-1 {
@@ -157,10 +157,10 @@
             left: 0px; 
         }
         }.silex-id-1474394605263-0 {
-            min-height: 77px; 
+            min-height: 51px; 
             background-color: transparent; 
             top: 0px; 
-            left: 23px; 
+            left: 51px; 
             width: 960px; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1474394605263-0 {
@@ -170,9 +170,9 @@
             min-height: 120px; 
         }
         }.silex-id-1442914737143-3 {
-            min-height: 36px; 
+            min-height: 30px; 
             width: 960px; 
-            top: 37px; 
+            top: 13px; 
             left: 1px; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1442914737143-3 {
