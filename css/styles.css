@@ -4,7 +4,7 @@
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
             background-attachment: fixed; 
             background-repeat: no-repeat; 
-            background-size: cover; 
+            background-size: auto; 
             background-position: bottom center; 
         }
         .silex-id-1474394621033-3 {
