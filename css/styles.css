@@ -1,21 +1,10 @@
 
-        @import url('//fonts.googleapis.com/css?family=Abel');body,font{font-family:'Abel',sans-serif;}.nav-buttons:hover,.nav-buttons.page-link-active{background-color:rgba(0,0,0,0.5);}
-    
-        .silex-id-1439547078652-33 {
-            cursor: auto; 
+        .body-initial {
+            background-color: rgba(255,255,255,1); 
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
-            background-color: transparent; 
-            border-top-color: rgb(0, 0, 0); 
-            border-right-color: rgb(0, 0, 0); 
-            border-bottom-color: rgb(0, 0, 0); 
-            border-left-color: rgb(0, 0, 0); 
-            background-repeat: no-repeat; 
-            background-attachment: fixed; 
             background-position: center center; 
-            background-size: auto; 
-        }
-        @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1439547078652-33 {
-            background-repeat: repeat; 
-        }
+            background-attachment: fixed; 
+            background-repeat: no-repeat; 
+            background-size: cover; 
         }
     
