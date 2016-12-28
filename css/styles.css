@@ -12,7 +12,7 @@
             background-repeat: no-repeat; 
             background-attachment: fixed; 
             background-position: bottom center; 
-            background-size: cover; 
+            background-size: auto; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.silex-id-1439547078652-33 {
             background-repeat: repeat; 
