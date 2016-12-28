@@ -3,9 +3,9 @@
             background-color: rgba(2,2,2,1); 
             background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
             background-attachment: fixed; 
-            background-position: center center; 
+            background-position: center left; 
             background-repeat: no-repeat; 
-            background-size: auto; 
+            background-size: cover; 
         }
         @media only screen and (max-width: 480px), only screen and (max-device-width: 480px){.body-initial {
             background-attachment: fixed; 
@@ -25,7 +25,7 @@
         }
         }.silex-id-1482879131818-6 {
             min-height: 153px; 
-            background-color: transparent; 
+            background-color: rgba(2,2,2,0.44313725490196076); 
             background-size: contain; 
             background-repeat: no-repeat; 
             background-position: center center; 
