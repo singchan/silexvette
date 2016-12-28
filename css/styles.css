@@ -1,9 +1,9 @@
 
         .body-initial {
             background-color: rgba(2,2,2,1); 
-            background-image: url('../assets/DynoBackgroundArtistic.jpg.png'); 
+            background-image: url('../assets/c7-wireframe-background-blurred.jpg'); 
             background-attachment: fixed; 
-            background-position: center left; 
+            background-position: center center; 
             background-repeat: no-repeat; 
             background-size: cover; 
         }
