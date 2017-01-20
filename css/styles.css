@@ -37,6 +37,15 @@
     animation-name: none !important;
 }
 /* */
+ .link menu {
+    background-color:#99999;
+    transition: all 0.5s ease-out;
+}
+.link-menu:hover,
+.link-menu.page-link-active {
+    background-color: #5eb0f9;
+    transition: all 0.1s ease-in;
+}
     
         .body-initial {
             background-color: rgb(38, 38, 38); 
@@ -72,15 +81,6 @@
             top: -25px; 
             left: -6px; 
         }
-        .silex-id-1484694761251-9 {
-            min-height: 61px; 
-            width: 241px; 
-            top: 9px; 
-            left: 705px; 
-            background-position: center center; 
-            background-repeat: no-repeat; 
-            background-size: cover; 
-        }
         .silex-id-1484695138735-12 {
             min-height: 65px; 
             width: 805px; 
@@ -100,10 +100,21 @@
             left: 460px; 
         }
         .silex-id-1484714014334-7 {
-            min-height: 84px; 
-            width: 236px; 
-            top: 19px; 
-            left: 460px; 
+            min-height: 73px; 
+            width: 213px; 
+            top: 27px; 
+            left: 476px; 
+        }
+        .silex-id-1484694761251-9 {
+            width: 216px; 
+            top: 26px; 
+            left: 706px; 
+            padding: 5px; 
+            min-height: 61px; 
+            background-position: center center; 
+            background-repeat: no-repeat; 
+            background-size: cover; 
+            background-color: transparent; 
         }
         .silex-id-1474394621033-3 {
             min-height: 781px; 
@@ -137,7 +148,7 @@
             min-height: 30px; 
             width: 105px; 
             top: 8px; 
-            left: 181px; 
+            left: 191px; 
             background-position: center center; 
             background-size: cover; 
             background-repeat: no-repeat; 
@@ -146,13 +157,13 @@
             min-height: 30px; 
             width: 105px; 
             top: 8px; 
-            left: 291px; 
+            left: 311px; 
         }
         .silex-id-1484713474842-3 {
             min-height: 30px; 
             width: 105px; 
             top: 8px; 
-            left: 400px; 
+            left: 430px; 
         }
         .silex-id-1484881098920-3 {
             min-height: 302px; 
@@ -179,13 +190,6 @@
             left: 65px; 
             background-color: transparent; 
         }
-        .silex-id-1484886452837-1 {
-            min-height: 81px; 
-            width: 278px; 
-            background-color: transparent; 
-            top: 7px; 
-            left: 662px; 
-        }
         .silex-id-1484881420229-8 {
             width: 449px; 
             top: 87px; 
@@ -193,6 +197,18 @@
             padding: 10px; 
             min-height: 672px; 
             background-color: transparent; 
+        }
+        .silex-id-1484886452837-1 {
+            width: 265px; 
+            top: 11px; 
+            left: 636px; 
+            padding: 5px; 
+            min-height: 20px; 
+            background-color: rgba(136,136,136,0.20392156862745098); 
+            border-width: 2px 0 2px 0 ; 
+            border-style: solid; 
+            background-attachment: fixed; 
+            background-size: cover; 
         }
         .silex-id-1474394605264-1 {
             min-height: 100px; 
