@@ -74,6 +74,20 @@
         })
     
     document.write('<link href="css/animate.min.css" rel="stylesheet">');
+    
+    //////////////////////////////////////////
+// silex reflection widget
+document.write('<script type="text/javascript" src="reflection.js"></'+'script>');
+$(function(){
+    console.log('reflect');
+    $(".reflect img").reflect().on('load', function(){
+        // let the reflection apear
+        $(".reflect div").width('100%').height('100%').css('overflow', 'visible');  
+        // restore silex setting for the image element 
+        $(this).width('100%').height('100%');  
+    });
+});
+//////////////////////////////////////////
     </script>
     <style class="silex-inline-styles" type="text/css">
         .body-initial {
@@ -277,8 +291,10 @@
 
 
 
+
+
     <style id="current-page-style">
-        .page-c6{display:inherit; }
+        .page-home{display:inherit; }
     </style>
     <!-- Silex HEAD tag do not remove -->
     <!-- End of Silex HEAD tag do not remove -->
@@ -291,7 +307,7 @@
             class="silex-element-content">
         </div>
 
-        <a id="page-home" data-silex-type="page" class="page-element">Home</a><a id="page-c5" data-silex-type="page" class="page-element">c5</a><a id="page-c6" data-silex-type="page" class="page-element page-link-active">c6</a><a id="page-c7" data-silex-type="page"
+        <a id="page-home" data-silex-type="page" class="page-element page-link-active">Home</a><a id="page-c5" data-silex-type="page" class="page-element">c5</a><a id="page-c6" data-silex-type="page" class="page-element">c6</a><a id="page-c7" data-silex-type="page"
         class="page-element">c7</a></div>
 
 
@@ -309,7 +325,7 @@
 
 
             <div data-silex-type="image" class="editable-style silex-id-1484694847072-11 image-element animated zoomIn page-home paged-element" data-silex-id="silex-id-1484694847072-11"><img src="images/c62.png" class="silex-element-content"></div>
-            <div data-silex-type="image" class="editable-style silex-id-1484694494094-5 image-element" data-silex-id="silex-id-1484694494094-5"><img src="images/AandALogoOldStyleHuge.png" class="silex-element-content"></div>
+            <div data-silex-type="image" class="editable-style silex-id-1484694494094-5 image-element reflect" data-silex-id="silex-id-1484694494094-5"><img src="images/AandALogoOldStyleHuge.png" class="silex-element-content"></div>
             <div data-silex-type="text" class="editable-style silex-id-1484694761251-9 text-element" data-silex-id="silex-id-1484694761251-9">
                 <div class="silex-element-content normal">
                     <div style="text-align: right;"><font color="#ffffff">A &amp; A Corvette Performance</font></div>
@@ -368,9 +384,9 @@
 
 
 
-            <div data-silex-type="image" class="editable-style silex-id-1484713493273-4 image-element" data-silex-id="silex-id-1484713493273-4" data-silex-href="#!page-home"><img src="images/home-button.png" class="silex-element-content"></div>
+            <div data-silex-type="image" class="editable-style silex-id-1484713493273-4 image-element page-link-active" data-silex-id="silex-id-1484713493273-4" data-silex-href="#!page-home"><img src="images/home-button.png" class="silex-element-content"></div>
             <div data-silex-type="image" class="editable-style silex-id-1484713455061-1 image-element" data-silex-id="silex-id-1484713455061-1" data-silex-href="#!page-c5"><img src="images/C5-Button.png" class="silex-element-content"></div>
-            <div data-silex-type="image" class="editable-style silex-id-1484713464106-2 image-element page-link-active" data-silex-id="silex-id-1484713464106-2" data-silex-href="#!page-c6"><img src="images/C6-Button.png" class="silex-element-content"></div>
+            <div data-silex-type="image" class="editable-style silex-id-1484713464106-2 image-element" data-silex-id="silex-id-1484713464106-2" data-silex-href="#!page-c6"><img src="images/C6-Button.png" class="silex-element-content"></div>
             <div data-silex-type="image" class="editable-style silex-id-1484713474842-3 image-element" data-silex-id="silex-id-1484713474842-3" data-silex-href="#!page-c7"><img src="images/C7-Button.png" class="silex-element-content"></div>
 
 
@@ -410,6 +426,8 @@
             </div>
         </div>
     </div>
+
+
 
 
 
