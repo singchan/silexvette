@@ -63,6 +63,22 @@
     <style type="text/css">
         .gm-style{font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:400;text-decoration:none}.gm-style img{max-width:none}
     </style>
+    <style type="text/css">
+        .gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}
+    </style>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <style type="text/css">
+        .gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}
+    </style>
+    <style type="text/css">
+        @media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}
+    </style>
+    <style type="text/css">
+        .gm-style-pbc{transition:opacity ease-in-out;background-color:rgba(0,0,0,0.45);text-align:center}.gm-style-pbt{font-size:22px;color:white;font-family:Roboto,Arial,sans-serif;position:relative;margin:0;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+    </style>
+    <style type="text/css">
+        .gm-style{font-family:Roboto,Arial,sans-serif;font-size:11px;font-weight:400;text-decoration:none}.gm-style img{max-width:none}
+    </style>
     <meta charset="UTF-8">
     <!-- generator meta tag -->
     <!-- leave this for stats and Silex version check -->
@@ -179,8 +195,17 @@
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/9/onion.js"></script>
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/9/controls.js"></script>
     <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/9/stats.js"></script>
+
+
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/9/common.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/9/map.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/9/util.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/9/marker.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/9/onion.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/9/controls.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/27/9/stats.js"></script>
     <style id="current-page-style">
-        .page-c5{display:inherit; }
+        .page-home{display:inherit; }
     </style>
     <!-- Silex HEAD tag do not remove -->
     <!-- End of Silex HEAD tag do not remove -->
@@ -196,7 +221,7 @@
 
 
 
-        <a id="page-home" data-silex-type="page" class="page-element">Home</a><a id="page-c5" data-silex-type="page" class="page-element page-link-active">c5</a><a id="page-c6" data-silex-type="page" class="page-element">c6</a><a id="page-c7" data-silex-type="page" class="page-element">c7</a><a id="page-contact" data-silex-type="page" class="page-element">Contact</a></div>
+        <a id="page-home" data-silex-type="page" class="page-element page-link-active">Home</a><a id="page-c5" data-silex-type="page" class="page-element">c5</a><a id="page-c6" data-silex-type="page" class="page-element">c6</a><a id="page-c7" data-silex-type="page" class="page-element">c7</a><a id="page-contact" data-silex-type="page" class="page-element">Contact</a></div>
 
 
 
@@ -240,11 +265,11 @@
                     </marquee>
                 </div>
             </div>
-            <a target="_blank" data-silex-type="text" class="editable-style text-element silex-id-1484931914697-2 hvr-hang" data-silex-id="silex-id-1484931914697-2" href="https://goo.gl/maps/tk7w6MJ2D6m">
+            <div data-silex-type="text" class="editable-style text-element silex-id-1484931914697-2 hvr-hang" data-silex-id="silex-id-1484931914697-2">
                 <div class="silex-element-content normal">
                     <div style="text-align: center;"><font face="arial, sans-serif" color="#ff0000" size="4"><b>Local (805) 278-4107</b></font></div>
                 </div>
-            </a>
+            </div>
             <div data-silex-type="text" class="editable-style text-element silex-id-1484931813740-1 hvr-hang" data-silex-id="silex-id-1484931813740-1">
                 <div class="silex-element-content normal">
                     <div style="text-align: center;"><font face="arial, sans-serif" color="#ff0000" size="4"><b>1-888-VETTEPRO</b></font></div>
@@ -296,8 +321,8 @@
 
 
 
-            <a data-silex-type="image" class="editable-style silex-id-1484713493273-4 image-element hvr-hang" data-silex-id="silex-id-1484713493273-4" href="#!page-home"><img src="assets/home-button.png" class="silex-element-content"></a>
-            <a data-silex-type="image" class="editable-style silex-id-1484713455061-1 image-element hvr-hang page-link-active" data-silex-id="silex-id-1484713455061-1" href="#!page-c5"><img src="assets/C5-Button.png" class="silex-element-content"></a>
+            <a data-silex-type="image" class="editable-style silex-id-1484713493273-4 image-element hvr-hang page-link-active" data-silex-id="silex-id-1484713493273-4" href="#!page-home"><img src="assets/home-button.png" class="silex-element-content"></a>
+            <a data-silex-type="image" class="editable-style silex-id-1484713455061-1 image-element hvr-hang" data-silex-id="silex-id-1484713455061-1" href="#!page-c5"><img src="assets/C5-Button.png" class="silex-element-content"></a>
             <a data-silex-type="image" class="editable-style silex-id-1484713464106-2 image-element hvr-hang" data-silex-id="silex-id-1484713464106-2" href="#!page-c6"><img src="assets/C6-Button.png" class="silex-element-content"></a>
             <a data-silex-type="image" class="editable-style silex-id-1484713474842-3 image-element hvr-hang" data-silex-id="silex-id-1484713474842-3" href="#!page-c7"><img src="assets/C7-Button.png" class="silex-element-content"></a>
 
@@ -313,7 +338,7 @@
 
             <div data-silex-id="silex-id-1442914737143-3" class="editable-style silex-id-1442914737143-3 text-element page-c5 paged-element" data-silex-type="text">
                 <div class="silex-element-content normal">
-                    <div style="text-align: center;"><font face="arial, sans-serif" size="6">C5</font><font size="5" face="arial, sans-serif"> CORVETTE SUPERCHARGERS</font></div>
+                    <div style="text-align: center;"><font face="arial, sans-serif" size="7" color="#ff0000">C5</font><font size="5" face="arial, sans-serif"> CORVETTE SUPERCHARGERS</font></div>
                 </div>
             </div>
 
@@ -522,12 +547,12 @@
         <div data-silex-type="image" class="editable-style silex-id-1484935941919-7 image-element page-c7 paged-element" data-silex-id="silex-id-1484935941919-7"><img src="assets/c7supercharger.png" class="silex-element-content"></div>
         <div data-silex-id="silex-id-1484936428776-8" class="editable-style text-element silex-id-1484936428776-8 page-c6 paged-element" data-silex-type="text">
             <div class="silex-element-content normal">
-                <div style="text-align: center;"><font face="arial, sans-serif" size="6">C6</font><font size="5" face="arial, sans-serif"> CORVETTE SUPERCHARGERS</font></div>
+                <div style="text-align: center;"><font face="arial, sans-serif" size="7" color="#ff0000">C6</font><font size="5" face="arial, sans-serif"> CORVETTE SUPERCHARGERS</font></div>
             </div>
         </div>
         <div data-silex-id="silex-id-1484936472467-9" class="editable-style text-element silex-id-1484936472467-9 page-c7 paged-element" data-silex-type="text">
             <div class="silex-element-content normal">
-                <div style="text-align: center;"><font face="arial, sans-serif" size="6">C7</font><font size="5" face="arial, sans-serif"> CORVETTE SUPERCHARGERS</font></div>
+                <div style="text-align: center;"><font face="arial, sans-serif" size="7" color="#ff0000">C7</font><font size="5" face="arial, sans-serif"> CORVETTE SUPERCHARGERS</font></div>
             </div>
         </div>
     </div>
@@ -537,6 +562,8 @@
 
         </div>
     </div>
+
+
 
 
 
