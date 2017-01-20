@@ -1,51 +1,35 @@
 
-        ////////////////////////////////////
-        // animate.js
-        document.write('<link href="css/animate.min.css" rel="stylesheet">');
+        /*$(function() {
+            // auto play all pages
+            var idx = 0;
+            var pages = $('.page-element');
+            setInterval(function() {
+                idx++;
+                if(idx >= pages.length) idx = 0;
+                var pageElement = pages.get(idx);
+                window.location.hash= '#!' + pageElement.id;
+            }, 5000);
+        })*/
         
         $(function() {
             setTimeout(function() {
                 $('body').addClass('loaded');
             }, 0);
-        });
-        
-        
-    //////////////////////////////////// 
-// Hover.js 
-document.write ('<link href = "./css/hover-min.css"rel="stylesheet">');
-////////////////////////////////////
-
-$(document).ready(function(){
-    $('.headline').hover(function(){
-        $(this).addClass('animated bounce');
+        })
+    
+    document.write('<link href="css/animate.min.css" rel="stylesheet">');
+    
+    //////////////////////////////////////////
+// silex reflection widget
+document.write('<script type="text/javascript" src="reflection.js"></'+'script>');
+$(function(){
+    console.log('reflect');
+    $(".reflect img").reflect().on('load', function(){
+        // let the reflection apear
+        $(".reflect div").width('100%').height('100%').css('overflow', 'visible');  
+        // restore silex setting for the image element 
+        $(this).width('100%').height('100%');  
     });
 });
-
-
-function animationHover(element, animation){
-    element = $(element);
-    element.hover(
-        function() {
-            element.addClass('animated ' + animation);        
-        },
-        function(){
-            //wait for animation to finish before removing classes
-            window.setTimeout( function(){
-                element.removeClass('animated ' + animation);
-            }, 2000);         
-        });
-}
-
-function animationClick(element, animation){
-    element = $(element);
-    element.click(
-        function() {
-            element.addClass('animated ' + animation);        
-            //wait for animation to finish before removing classes
-            window.setTimeout( function(){
-                element.removeClass('animated ' + animation);
-            }, 2000);         
-  
-        });
-}
+//////////////////////////////////////////
     
