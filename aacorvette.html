@@ -292,170 +292,6 @@ canvas {
     margin-left : 50%;
     left: -150px;
 }
-
-body{
-  background:#000;
-}
-	
-	body{
-		padding: 0;
-		margin: 0;
-		background: #24282c;
-		font-family: "Questrial", Arial, Helvetica, sans-serif;
-	}
-	
-	#slider-wrapper{
-		width: 1024px;
-		height: auto;
-		margin: 20px auto;
-		text-align: center;
-	}
-	
-	#dots{
-		cursor: default;
-	}
-	
-	ul{
-		padding: 0;
-		margin: 0;
-	}
-	
-	#dots li{
-		display: inline-block;
-			*display: inline;
-			zoom: 1.0;
-		background: #61676D;
-		width: 10px;
-		height: 10px;
-		border-radius: 8px;
-		margin: 0 2px;
-		cursor: pointer;
-	}
-	
-	#dots li.active, #dots li:hover{
-		background: #c4c9cf;
-	}
-	
-	
-	.nav-arrow{
-		width: 46px;
-		height: 343px;
-		display: inline-block;
-			*display: inline;
-			zoom: 1.0;
-		cursor: pointer;
-	}
-	
-	#arrow-left{
-		background: url('http://www.derekhilldesign.com/projects/slider-header/images/arrow-left.png') center center no-repeat;
-	}
-	
-	#arrow-right{
-		background: url('http://www.derekhilldesign.com/projects/slider-header/images/arrow-right.png') center center no-repeat;
-	}
-	
-	#arrow-right:hover, #arrow-left:hover{
-		background-color: #1e2225;
-	}
-	
-	#image-slider{
-		width: 923px;
-		height: 343px;
-		position: relative;
-		margin-top: 10px;
-		overflow: hidden;
-		display: inline-block;
-			*display: inline;
-			zoom: 1.0;
-	}
-	
-	#slider-wrapper:before{
-		content: '';
-		width: 974px;
-		height: 52px;
-		display: block;
-		position: absolute;
-		left: 50%;
-		margin-left: -487px;
-		top: 375px;
-		background: url('http://www.derekhilldesign.com/projects/slider-header/images/shadow.png') center center no-repeat;
-	}
-	#image-slider ul{
-		width: 923px;
-		height: 343px;
-		position: relative;
-	}
-	#image-slider ul li{
-		display: inline-block;
-			*display: inline;
-			zoom: 1.0;
-		position: absolute;
-		top: 0;
-		left: -923px;
-	}
-	
-	#image-slider ul li.active-img{
-		left: 0;
-	}
-	.next-img{
-		z-index: 9999;
-	}
-	
-	#nav-bar{
-		width: 923px;
-		position: absolute;
-		z-index: 999999;
-		bottom: -3px;
-	}
-	
-	#nav-bar a{
-		display: inline-block;
-			*display: block;
-			zoom: 1.0;
-		width: 231px;
-		text-align: center;
-		height: 26px;
-		padding-top: 9px;
-		color: #fff;
-		overflow: hidden;
-		font-size: 21px;
-		text-shadow: 0 1px 5px #000;
-		text-decoration: none;
-		position: relative;
-		background: rgba(2, 19, 32, 0.9);
-		-webkit-transition: padding-top .25s;
-		-moz-transition: padding-top .25s;
-		transition: padding-top .25s;
-	}
-	
-	#nav-bar a:first-child{
-		width: 230px;
-	}
-	
-	#nav-bar a div{
-		height: 0;
-		width: 231px;
-		overflow: hidden;
-		position: absolute;
-		left: 0;
-		bottom: 0;
-	}
-	
-	#nav-bar a div img{
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		opacity: 0.3;
-	}
-	
-	#nav-bar a:hover{
-		padding-top: 317px;
-		box-shadow: 0 0 5px #000;
-	}
-	
-	#nav-bar a:hover div{
-		height: 343px;
-	}
     </style>
     <script type="text/javascript" class="silex-script">
         /*$(function() {
@@ -567,117 +403,6 @@ var draw = function(){
 };
 
 setInterval(draw, 1000/60);
-    $(function(){
-		
-		var sliderInterval = setInterval(function() {
-     		nextImg();
-		}, 7000);
-		
-		$('.nav-arrow').click(function(){
-			if($(this).attr('id') == 'arrow-left'){
-				prevImg();
-			}else{
-				nextImg();
-			}
-			
-			clearInterval(sliderInterval);
-			
-		});
-		
-		$('#dots li').click(function(){
-			var thisIndex = $(this).index()
-			
-			if(thisIndex < $('#dots li.active').index()){
-				prevDot(thisIndex);
-			}else if(thisIndex > $('#dots li.active').index()){
-				nextDot(thisIndex);
-			}
-			
-			$('#dots li.active').removeClass('active');
-			$(this).addClass('active');
-			
-			clearInterval(sliderInterval);
-			
-		});
-	})
-	
-	function prevImg(){
-		var curIndex = $('#image-slider li.active-img').index();
-		
-		if(curIndex == 0){
-			$('#image-slider li:last-child').addClass('next-img').animate({
-				left: 0
-			}, function(){
-				$('#image-slider li.active-img').removeClass('active-img').css('left', '-923px');
-				$('#image-slider li.next-img').attr('class', 'active-img');
-				
-				var nextIndex = $('#image-slider li.active-img').index();
-				
-				$('#dots li.active').removeClass('active');
-				$('#dots li').eq(nextIndex).addClass('active');
-			});
-		}else{
-			$('#image-slider li.active-img').prev().addClass('next-img').animate({
-				left: 0
-			}, function(){
-				$('#image-slider li.active-img').removeClass('active-img').css('left', '-923px');
-				$('#image-slider li.next-img').attr('class', 'active-img');
-				
-				var nextIndex = $('#image-slider li.active-img').index();
-				
-				$('#dots li.active').removeClass('active');
-				$('#dots li').eq(nextIndex).addClass('active');
-			});
-		}
-	}
-	
-	function nextImg(){
-		var curIndex = $('#image-slider li.active-img').index();
-		
-		if(curIndex == $('#image-slider li').length - 1){
-			$('#image-slider li:first-child').addClass('next-img').css('left', 923).animate({
-				left: 0
-			}, function(){
-				$('#image-slider li.active-img').removeClass('active-img').css('left', '-923px');
-				$('#image-slider li.next-img').attr('class', 'active-img');
-				
-				var nextIndex = $('#image-slider li.active-img').index();
-				
-				$('#dots li.active').removeClass('active');
-				$('#dots li').eq(nextIndex).addClass('active');
-			});
-		}else{
-			$('#image-slider li.active-img').next().addClass('next-img').css('left', 923).animate({
-				left: 0
-			}, function(){
-				$('#image-slider li.active-img').removeClass('active-img').css('left', '-923px');
-				$('#image-slider li.next-img').attr('class', 'active-img');
-				
-				var nextIndex = $('#image-slider li.active-img').index();
-				
-				$('#dots li.active').removeClass('active');
-				$('#dots li').eq(nextIndex).addClass('active');
-			});
-		}
-	}
-	
-	function prevDot(newIndex){
-		$('#image-slider li').eq(newIndex).addClass('next-img').animate({
-			left: 0
-		}, function(){
-			$('#image-slider li.active-img').removeClass('active-img').css('left', '-923px');
-			$('#image-slider li.next-img').attr('class', 'active-img');
-		});
-	}
-	
-	function nextDot(newIndex){
-		$('#image-slider li').eq(newIndex).addClass('next-img').css('left', 923).animate({
-			left: 0
-		}, function(){
-			$('#image-slider li.active-img').removeClass('active-img').css('left', '-923px');
-			$('#image-slider li.next-img').attr('class', 'active-img');
-		});
-	}
     </script>
     <style class="silex-inline-styles" type="text/css">
         .body-initial {
@@ -787,12 +512,12 @@ setInterval(draw, 1000/60);
             text-shadow: 2px 3px #000000; 
         }
         .silex-id-1474394621033-3 {
-            min-height: 1210px; 
+            min-height: 1055px; 
             top: 156px; 
             left: 0px; 
         }
         .silex-id-1474394621032-2 {
-            min-height: 1210px; 
+            min-height: 1055px; 
             background-color: rgba(38,38,38,0.7764705882352941); 
             top: 0px; 
             left: 0px; 
@@ -802,7 +527,7 @@ setInterval(draw, 1000/60);
         }
         .silex-id-1484713126784-0 {
             width: 905px; 
-            top: 468px; 
+            top: 348px; 
             left: 15px; 
             padding: 10px; 
             min-height: 702px; 
@@ -922,7 +647,7 @@ setInterval(draw, 1000/60);
     </style>
     <title>A&amp;A Corvette Performance</title>
     <script type="text/javascript" class="silex-json-styles">
-        [{"desktop":{"body-initial":{"background-color":"rgba(25,25,25,0.9725490196078431)","background-image":"url('images/c7-background-wf-ghost3.jpg')","background-position":"center center","background-attachment":"fixed","background-size":"cover","background-repeat":"no-repeat"},"silex-id-1474394621033-3":{"min-height":"1210px","top":"156px","left":"0px"},"silex-id-1474394621032-2":{"min-height":"770px","background-color":"rgba(38,38,38,0.7764705882352941)","top":"0px","left":"0px","width":"960px","border-width":"2px 2px 2px 2px ","border-style":"solid"},"silex-id-1474394605264-1":{"min-height":"100px","top":"100px","left":"100px"},"silex-id-1474394605263-0":{"min-height":"100px","background-color":"rgba(38,38,38,0.7764705882352941)","border-width":"2px 2px 2px 2px ","border-style":"solid","top":"0px","left":"0px","width":"960px"},"silex-id-1442914737143-3":{"width":"450px","top":"58px","left":"20px","min-height":"84px","background-color":"transparent","text-shadow":"1px 1px 2px black, 0 0 5px, 0 0 5px white"},"silex-id-1484694494094-5":{"min-height":"140px","width":"395px","top":"-25px","left":"-26px"},"silex-id-1484694513764-6":{"min-height":"156px","background-color":"rgba(38,38,38,0.7764705882352941)","top":"0px","left":"0px","width":"960px","border-width":"2px 2px 2px 2px ","border-style":"solid"},"silex-id-1484694513764-7":{"min-height":"156px","top":"100px","left":"NaNpx"},"silex-id-1484694761251-9":{"width":"216px","top":"5px","left":"729px","padding":"5px","min-height":"61px","background-position":"center center","background-repeat":"no-repeat","background-size":"cover","background-color":"transparent","text-shadow":"2px 3px #000000"},"silex-id-1484694836153-10":{"min-height":"100px","width":"100px","top":"100px","left":"456.18181800842285px"},"silex-id-1484694847072-11":{"min-height":"200px","width":"530px","top":"-22px","left":"425px"},"silex-id-1484695138735-12":{"min-height":"65px","width":"805px","top":"107px","left":"84px"},"silex-id-1484713126784-0":{"width":"905px","top":"468px","left":"15px","padding":"10px","min-height":"702px","background-color":"transparent","background-image":"","background-repeat":"no-repeat","background-size":"contain","background-position":"center center","background-attachment":"fixed"},"silex-id-1484713455061-1":{"min-height":"30px","width":"105px","top":"8px","left":"191px","background-image":"","background-position":"center center","background-size":"cover","background-repeat":"no-repeat"},"silex-id-1484713464106-2":{"min-height":"30px","width":"105px","top":"8px","left":"311px"},"silex-id-1484713474842-3":{"min-height":"30px","width":"105px","top":"8px","left":"430px"},"silex-id-1484713493273-4":{"min-height":"30px","width":"150px","top":"8px","left":"26px"},"silex-id-1484713959308-5":{"min-height":"84px","width":"236px","top":"19px","left":"550px"},"silex-id-1484713981534-6":{"min-height":"84px","width":"236px","top":"19px","left":"550px"},"silex-id-1484714014334-7":{"min-height":"73px","width":"213px","top":"27px","left":"550px"},"silex-id-1484880858860-0":{"min-height":"200px","width":"400px","top":"44px","left":"286px","opacity":"0.3"},"silex-id-1484880992455-1":{"min-height":"302px","width":"465px","top":"89px","left":"11px","opacity":""},"silex-id-1484881069005-2":{"min-height":"200px","width":"400px","top":"318px","left":"32px","opacity":"0.3"},"silex-id-1484881098920-3":{"min-height":"302px","width":"552px","top":"89px","left":"11px"},"silex-id-1484881179416-4":{"min-height":"100px","width":"100px","top":"216.73294830322266px","left":"356.3210220336914px"},"silex-id-1484881186596-5":{"min-height":"100px","width":"100px","top":"216.73294830322266px","left":"356.3210220336914px"},"silex-id-1484881196986-6":{"min-height":"305px","width":"467px","top":"89px","left":"11px"},"silex-id-1484881420229-8":{"width":"449px","top":"57px","left":"476px","padding":"10px","min-height":"672px","background-color":"transparent","background-image":"","background-repeat":"no-repeat","background-size":"cover","background-position":"center center"},"silex-id-1484886257165-0":{"min-height":"65px","width":"329px","top":"9px","left":"597px"},"silex-id-1484886452837-1":{"width":"265px","top":"71px","left":"345px","padding":"5px","color":"white","min-height":"20px","background-color":"transparent","background-attachment":"fixed","background-size":"cover","text-shadow":"1px 1px 2px black, 0 0 5px red, 0 0 10px black"},"silex-id-1484896849545-0":{"min-height":"341px","width":"434px","background-color":"rgb(255, 255, 255)","top":"56px","left":"483px"},"silex-id-1484930199670-0":{"min-height":"200px","width":"400px","background-color":"rgb(255, 255, 255)","top":"88px","left":"30px"},"silex-id-1484931813740-1":{"width":"300px","top":"8px","left":"318px","padding":"5px","min-height":"20px","background-position":"center center","background-repeat":"no-repeat","background-size":"cover","background-color":"transparent","text-shadow":"2px 3px #000000"},"silex-id-1484931914697-2":{"width":"350px","top":"39px","left":"294px","padding":"5px","min-height":"20px","background-position":"center center","background-repeat":"no-repeat","background-size":"cover","background-color":"transparent","text-shadow":"2px 3px #000000"},"silex-id-1484934138271-3":{"min-height":"30px","width":"232px","top":"8px","left":"550px"},"silex-id-1484935604259-4":{"min-height":"100px","width":"100px","top":"100px","left":"408px"},"silex-id-1484935702411-5":{"min-height":"100px","width":"100px","top":"100px","left":"408px"},"silex-id-1484935941919-7":{"min-height":"283px","width":"473px","top":"85px","left":"23px"},"silex-id-1484936428776-8":{"width":"450px","top":"58px","left":"20px","min-height":"111px","background-color":"transparent","text-shadow":"1px 1px 2px black, 0 0 5px, 0 0 5px white"},"silex-id-1484936472467-9":{"width":"450px","top":"58px","left":"20px","min-height":"22px","background-color":"transparent","text-shadow":"1px 1px 2px black, 0 0 5px, 0 0 5px white"},"silex-id-1484941032183-0":{"min-height":"51px","width":"253px","background-color":"rgb(255, 255, 255)","top":"1150px","left":"338px"},"silex-id-1484941167087-1":{"min-height":"300px","width":"100px","background-color":"transparent","top":"234px","left":"416px","opacity":"0.55"},"silex-id-1485055936328-0":{"min-height":"235px","width":"905px","background-color":"rgba(255,255,255,0.4235294117647059)","top":"43px","left":"15px"}},"mobile":{}}]
+        [{"desktop":{"body-initial":{"background-color":"rgba(25,25,25,0.9725490196078431)","background-image":"url('images/c7-background-wf-ghost3.jpg')","background-position":"center center","background-attachment":"fixed","background-size":"cover","background-repeat":"no-repeat"},"silex-id-1474394621033-3":{"min-height":"1055px","top":"156px","left":"0px"},"silex-id-1474394621032-2":{"min-height":"770px","background-color":"rgba(38,38,38,0.7764705882352941)","top":"0px","left":"0px","width":"960px","border-width":"2px 2px 2px 2px ","border-style":"solid"},"silex-id-1474394605264-1":{"min-height":"100px","top":"100px","left":"100px"},"silex-id-1474394605263-0":{"min-height":"100px","background-color":"rgba(38,38,38,0.7764705882352941)","border-width":"2px 2px 2px 2px ","border-style":"solid","top":"0px","left":"0px","width":"960px"},"silex-id-1442914737143-3":{"width":"450px","top":"58px","left":"20px","min-height":"84px","background-color":"transparent","text-shadow":"1px 1px 2px black, 0 0 5px, 0 0 5px white"},"silex-id-1484694494094-5":{"min-height":"140px","width":"395px","top":"-25px","left":"-26px"},"silex-id-1484694513764-6":{"min-height":"156px","background-color":"rgba(38,38,38,0.7764705882352941)","top":"0px","left":"0px","width":"960px","border-width":"2px 2px 2px 2px ","border-style":"solid"},"silex-id-1484694513764-7":{"min-height":"156px","top":"100px","left":"NaNpx"},"silex-id-1484694761251-9":{"width":"216px","top":"5px","left":"729px","padding":"5px","min-height":"61px","background-position":"center center","background-repeat":"no-repeat","background-size":"cover","background-color":"transparent","text-shadow":"2px 3px #000000"},"silex-id-1484694836153-10":{"min-height":"100px","width":"100px","top":"100px","left":"456.18181800842285px"},"silex-id-1484694847072-11":{"min-height":"200px","width":"530px","top":"-22px","left":"425px"},"silex-id-1484695138735-12":{"min-height":"65px","width":"805px","top":"107px","left":"84px"},"silex-id-1484713126784-0":{"width":"905px","top":"348px","left":"15px","padding":"10px","min-height":"702px","background-color":"transparent","background-image":"","background-repeat":"no-repeat","background-size":"contain","background-position":"center center","background-attachment":"fixed"},"silex-id-1484713455061-1":{"min-height":"30px","width":"105px","top":"8px","left":"191px","background-image":"","background-position":"center center","background-size":"cover","background-repeat":"no-repeat"},"silex-id-1484713464106-2":{"min-height":"30px","width":"105px","top":"8px","left":"311px"},"silex-id-1484713474842-3":{"min-height":"30px","width":"105px","top":"8px","left":"430px"},"silex-id-1484713493273-4":{"min-height":"30px","width":"150px","top":"8px","left":"26px"},"silex-id-1484713959308-5":{"min-height":"84px","width":"236px","top":"19px","left":"550px"},"silex-id-1484713981534-6":{"min-height":"84px","width":"236px","top":"19px","left":"550px"},"silex-id-1484714014334-7":{"min-height":"73px","width":"213px","top":"27px","left":"550px"},"silex-id-1484880858860-0":{"min-height":"200px","width":"400px","top":"44px","left":"286px","opacity":"0.3"},"silex-id-1484880992455-1":{"min-height":"302px","width":"465px","top":"89px","left":"11px","opacity":""},"silex-id-1484881069005-2":{"min-height":"200px","width":"400px","top":"318px","left":"32px","opacity":"0.3"},"silex-id-1484881098920-3":{"min-height":"302px","width":"552px","top":"89px","left":"11px"},"silex-id-1484881179416-4":{"min-height":"100px","width":"100px","top":"216.73294830322266px","left":"356.3210220336914px"},"silex-id-1484881186596-5":{"min-height":"100px","width":"100px","top":"216.73294830322266px","left":"356.3210220336914px"},"silex-id-1484881196986-6":{"min-height":"305px","width":"467px","top":"89px","left":"11px"},"silex-id-1484881420229-8":{"width":"449px","top":"57px","left":"476px","padding":"10px","min-height":"672px","background-color":"transparent","background-image":"","background-repeat":"no-repeat","background-size":"cover","background-position":"center center"},"silex-id-1484886257165-0":{"min-height":"65px","width":"329px","top":"9px","left":"597px"},"silex-id-1484886452837-1":{"width":"265px","top":"71px","left":"345px","padding":"5px","color":"white","min-height":"20px","background-color":"transparent","background-attachment":"fixed","background-size":"cover","text-shadow":"1px 1px 2px black, 0 0 5px red, 0 0 10px black"},"silex-id-1484896849545-0":{"min-height":"341px","width":"434px","background-color":"rgb(255, 255, 255)","top":"56px","left":"483px"},"silex-id-1484930199670-0":{"min-height":"200px","width":"400px","background-color":"rgb(255, 255, 255)","top":"88px","left":"30px"},"silex-id-1484931813740-1":{"width":"300px","top":"8px","left":"318px","padding":"5px","min-height":"20px","background-position":"center center","background-repeat":"no-repeat","background-size":"cover","background-color":"transparent","text-shadow":"2px 3px #000000"},"silex-id-1484931914697-2":{"width":"350px","top":"39px","left":"294px","padding":"5px","min-height":"20px","background-position":"center center","background-repeat":"no-repeat","background-size":"cover","background-color":"transparent","text-shadow":"2px 3px #000000"},"silex-id-1484934138271-3":{"min-height":"30px","width":"232px","top":"8px","left":"550px"},"silex-id-1484935604259-4":{"min-height":"100px","width":"100px","top":"100px","left":"408px"},"silex-id-1484935702411-5":{"min-height":"100px","width":"100px","top":"100px","left":"408px"},"silex-id-1484935941919-7":{"min-height":"283px","width":"473px","top":"85px","left":"23px"},"silex-id-1484936428776-8":{"width":"450px","top":"58px","left":"20px","min-height":"111px","background-color":"transparent","text-shadow":"1px 1px 2px black, 0 0 5px, 0 0 5px white"},"silex-id-1484936472467-9":{"width":"450px","top":"58px","left":"20px","min-height":"22px","background-color":"transparent","text-shadow":"1px 1px 2px black, 0 0 5px, 0 0 5px white"},"silex-id-1484941032183-0":{"min-height":"51px","width":"253px","background-color":"rgb(255, 255, 255)","top":"1150px","left":"338px"},"silex-id-1484941167087-1":{"min-height":"300px","width":"100px","background-color":"transparent","top":"234px","left":"416px","opacity":"0.55"},"silex-id-1485055936328-0":{"min-height":"235px","width":"905px","background-color":"rgba(255,255,255,0.4235294117647059)","top":"43px","left":"15px"}},"mobile":{}}]
     </script>
 
 
@@ -1130,6 +855,8 @@ setInterval(draw, 1000/60);
 
 
 
+
+
     <style id="current-page-style">
         .page-home{display:inherit; }
     </style>
@@ -1321,36 +1048,7 @@ setInterval(draw, 1000/60);
             </div>
 
             <div data-silex-type="html" class="editable-style silex-id-1485055936328-0 html-element page-home paged-element" data-silex-id="silex-id-1485055936328-0">
-                <div class="silex-element-content">
-                    <div id="slider-wrapper">
-                        <div id="dots">
-                            <ul>
-                                <li class="active"></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                        <div id="arrow-left" class="nav-arrow"></div>
-                        <div id="image-slider">
-                            <ul>
-                                <li class="active-img"><img src="http://www.derekhilldesign.com/projects/slider-header/images/sunset.jpg" alt=""></li>
-                                <li><img src="http://www.derekhilldesign.com/projects/slider-header/images/lele.jpg" alt=""></li>
-                                <li><img src="http://www.derekhilldesign.com/projects/slider-header/images/logo.jpg" alt=""></li>
-                            </ul>
-                            <div id="nav-bar">
-                                <a href="#">
-                                    <div><img src="http://www.derekhilldesign.com/projects/slider-header/images/thumb-web.jpg"></div>Web</a>
-                                <a href="#">
-                                    <div><img src="http://www.derekhilldesign.com/projects/slider-header/images/thumb-print.jpg"></div>Print</a>
-                                <a href="#">
-                                    <div><img src="http://www.derekhilldesign.com/projects/slider-header/images/thumb-logo.jpg"></div>Logos</a>
-                                <a href="#">
-                                    <div><img src="http://www.derekhilldesign.com/projects/slider-header/images/thumb-photo.jpg"></div>Photos</a>
-                            </div>
-                        </div>
-                        <div id="arrow-right" class="nav-arrow"></div>
-                    </div>
-                </div>
+                <div class="silex-element-content"></div>
             </div>
         </div>
     </div>
@@ -1362,6 +1060,8 @@ setInterval(draw, 1000/60);
 
         </div>
     </div>
+
+
 
 
 
