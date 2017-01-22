@@ -292,774 +292,111 @@ canvas {
     margin-left : 50%;
     left: -150px;
 }
-.fnc {
-
-  // main variables, basically everything depends on $slidingAT
-  $slidingAT: 1s;
-  $slidingDelay: $slidingAT / 3 * 2;
-  $maskAT: $slidingAT*0.7;
-  $headingAT: $slidingAT * 1.5;
-  $controlAT: $slidingAT/2;
-  $easing: ease-in-out;
-  $blendMode: luminosity;
-
-  $contentLeft: 40%;
-  $contentTop: 40%;
-  
-  $headingPadding: 30px;
-  $headingFontSize: 100px;
-  
-  $maskTop: 15%;
-  $maskRight: 100% - $contentLeft;
-  $maskHeight: 67vh;
-  $maskWidth: $maskHeight * 0.75;
-
-  $black: #1F2833;
-
-  /* you can add color names and their values here
-  and then simply add classes like .m--blend-$colorName to .fnc-slide 
-  to apply specific color for mask blend mode */
-  $bgColors: (
-    dark: lighten(#242424, 20%),
-    green: #42605E,
-    red: lighten(#6A0A0D, 10%),
-    blue: #2D7791
-  );
-
-  &-slider {
-    overflow: hidden;
-    box-sizing: border-box;
-    position: relative;
-    height: 100vh;
-
-    *, *:before, *:after {
-      box-sizing: border-box;
-    }
-
-    &__slides {
-      position: relative;
-      height: 100%;
-      transition: transform $slidingAT $slidingDelay;
-    }
-    
-    // iterate through color map and set colors for specific classes
-    @each $colorTheme, $bgColor in $bgColors {
-      .m--blend-#{$colorTheme} {
-        .fnc-slide__inner {
-          background-color: lighten($bgColor, 20%);
-        }
-
-        .fnc-slide__mask-inner {
-          background-color: $bgColor;
-        }
-      }
-
-      .m--navbg-#{$colorTheme} {
-        background-color: $bgColor;
-      }
-    }
-  }
-
-  &-slide {
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    transform: translate3d(0,0,0);
-
-    &.m--before-sliding {
-      z-index: 2 !important;
-      transform: translate3d(100%,0,0);
-    }
-
-    &.m--active-slide {
-      z-index: 1;
-      transition: transform $slidingAT $slidingDelay $easing;
-      transform: translate3d(0,0,0);
-    }
-
-    &__inner {
-      position: relative;
-      height: 100%;
-      background-size: cover;
-      background-position: center top;
-      transform: translate3d(0,0,0);
-
-      .m--global-blending-active &,
-      .m--blend-bg-active & {
-        background-blend-mode: $blendMode;
-      }
-
-      .m--before-sliding & {
-        transform: translate3d(-100%,0,0);
-      }
-
-      .m--active-slide & {
-        transition: transform $slidingAT $slidingDelay $easing;
-        transform: translate3d(0,0,0);
-      }
-    }
-
-    &__mask {
-      $activeDelay: $slidingAT + $slidingDelay/3;
-      $xOffset: 200px;
-      $yOffset: 0;
-      $deg: 10deg;
-
-      overflow: hidden;
-      z-index: 1;
-      position: absolute;
-      right: $maskRight;
-      top: $maskTop;
-      width: $maskWidth;
-      height: $maskHeight;
-      margin-right: $headingPadding * -3;
-      // This line basically does all magic with masking effect. Very simple and elegant. Webkit only atm.
-      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 0, 6vh 0, 6vh 61vh, 44vh 61vh, 44vh 6vh, 6vh 6vh);
-      transform-origin: 50% 0;
-      transition-timing-function: $easing;
-
-      .m--before-sliding & {
-        transform: rotate($deg*-1) translate3d($xOffset,0,0);
-        opacity: 0;
-      }
-
-      .m--active-slide & {
-        transition: transform $maskAT $activeDelay, opacity $maskAT/2 $activeDelay;
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .m--previous-slide & {
-        transition: transform $maskAT $slidingDelay/2, opacity $maskAT/2 $maskAT/2 + $slidingDelay/2;
-        transform: rotate($deg) translate3d($xOffset*-1,0,0);
-        opacity: 0;
-      }
-
-      &-inner {
-        z-index: -1;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: 100vw;
-        height: 100vh;
-        margin-left: -50vw;
-        margin-top: -50vh;
-        background-size: cover;
-        background-position: center center;
-        background-blend-mode: $blendMode;
-        transform-origin: 50% (100vh - $maskHeight) / 2;
-        transition-timing-function: $easing;
-
-        .m--before-sliding & {
-          transform: translateY($yOffset) rotate($deg) translateX($xOffset*-1) translateZ(0);
-        }
-
-        .m--active-slide & {
-          transition: transform $maskAT $activeDelay;
-          transform: translateX(0);
-        }
-
-        .m--previous-slide & {
-          transition: transform $maskAT $slidingDelay/2;
-          transform: translateY($yOffset) rotate($deg*-1) translateX($xOffset) translateZ(0);
-        }
-      }
-    }
-
-    &__content {
-      z-index: 2;
-      position: absolute;
-      left: $contentLeft;
-      top: $contentTop;
-    }
-
-    &__heading {
-      margin-bottom: 10px;
-      text-transform: uppercase;
-
-      &-line {
-        overflow: hidden;
-        position: relative;
-        padding-right: 20px;
-        font-size: $headingFontSize;
-        color: #fff;
-        word-spacing: 10px;
-
-        &:nth-child(2) {
-          padding-left: $headingPadding;
-        }
-
-        .m--before-sliding & {
-          transform: translateY(100%);
-        }
-
-        .m--active-slide & {
-          transition: transform $headingAT $slidingDelay*1.5;
-          transform: translateY(0);
-        }
-
-        .m--previous-slide & {
-          transition: transform $headingAT;
-          transform: translateY(-100%);
-        }
-
-        span {
-          display: block;
-
-          .m--before-sliding & {
-            transform: translateY(-100%);
-          }
-
-          .m--active-slide & {
-            transition: transform $headingAT $slidingDelay*1.5;
-            transform: translateY(0);
-          }
-
-          .m--previous-slide & {
-            transition: transform $headingAT;
-            transform: translateY(100%);
-          }
-        }
-      }
-    }
-
-    &__action-btn {
-      $hoverAT: 0.3s;
-      $fontSize: 20px;
-      $vertPadding: 5px;
-      $lineHeight: $fontSize + $vertPadding*2;
-
-      position: relative;
-      margin-left: 200px;
-      padding: $vertPadding 15px;
-      font-size: $fontSize;
-      line-height: 1;
-      color: transparent;
-      border: none;
-      text-transform: uppercase;
-      background: transparent;
-      cursor: pointer;
-      text-align: center;
-      outline: none;
-
-      span {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        perspective: 1000px;
-        transform-style: preserve-3d;
-        transition: transform $hoverAT;
-        transform-origin: 50% 0;
-        line-height: $lineHeight;
-        color: #fff;
-
-        &:before {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          border: 2px solid #fff;
-          border-top: none;
-          border-bottom: none;
-        }
-
-        &:after {
-          content: attr(data-text);
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          line-height: $lineHeight;
-          background: $black;
-          opacity: 0;
-          transform-origin: 50% 0;
-          transform: translateY(100%) rotateX(-90deg);
-          transition: opacity $hoverAT/2 $hoverAT/2;
-        }
-      }
-
-      &:hover span {
-        transform: rotateX(90deg);
-
-        &:after {
-          opacity: 1;
-          transition: opacity $hoverAT/2;
-        }
-      }
-    }
-  }
-
-  &-nav {
-    z-index: 5;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-
-    &__bgs {
-      z-index: -1;
-      overflow: hidden;
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    &__bg {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-
-      &.m--nav-bg-before {
-        z-index: 2 !important;
-        transform: translateX(100%);
-      }
-
-      &.m--active-nav-bg {
-        z-index: 1;
-        transition: transform $slidingAT $slidingDelay;
-        transform: translateX(0);
-      }
-    }
-    
-    &__controls {
-      font-size: 0;
-    }
-
-    &__control {
-      $controlWidth: 100px;
-
-      overflow: hidden;
-      position: relative;
-      display: inline-block;
-      vertical-align: top;
-      width: $controlWidth;
-      height: 50px;
-      font-size: 14px;
-      color: #fff;
-      text-transform: uppercase;
-      background: transparent;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      transition: background-color $controlAT;
-
-      &.m--active-control {
-        background: $black;
-      }
-
-      &-progress {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 2px;
-        background: #fff;
-        transform-origin: 0 50%;
-        transform: scaleX(0);
-        transition-timing-function: linear !important;
-
-        .m--with-autosliding .m--active-control & {
-          transform: scaleX(1);
-        }
-
-        .m--prev-control & {
-          transform: translateX(100%);
-          transition: transform 0.5s !important;
-        }
-
-        .m--reset-progress & {
-          transform: scaleX(0);
-          transition: transform 0s 0s !important;
-        }
-
-        .m--autosliding-blocked & {
-          transition: all 0s 0s !important;
-          transform: scaleX(0) !important;
-        }
-      }
-    }
-  }
-
+    /*
+	Sets the style of the image slider wrapper <div> to be centered horizontally and vertically.
+	It also sets its default dimensions and the overflowing hidden (to fix the IE image positioning bug).
+*/
+#threesixty {
+	position:absolute;
+	/* This one fixes the IE positioning bug */
+	overflow:hidden;
+	top:50%;
+	left:50%;
+	width:960px;
+	height:540px;
+	margin-left:-480px;
+	margin-top:-270px;
 }
-
-
-/* NOT PART OF COMMON SLIDER STYLES */
-$font: 'Open Sans', Helvetica, Arial, sans-serif;
-$creditsAT: 0.7s;
-$creditsWidth: 400px;
-
-body {
-  margin: 0;
+/*
+	Defines the criteria for the max. 1024px wide tablets portrait mode and sets the image slider dimensions and centering according to it.
+*/
+@media	screen and (max-device-width: 1024px) and (orientation:portrait) {
+	#threesixty {
+		width:720px;
+		height:450px;
+		margin-left:-360px;
+		margin-top:-225px;
+	}
 }
-
-.demo-cont {
-  overflow: hidden;
-  position: relative;
-  height: 100vh;
-  perspective: 1500px;
-  background: #000;
-  
-  &__credits {
-    box-sizing: border-box;
-    overflow-y: auto;
-    z-index: 1;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: $creditsWidth;
-    height: 100%;
-    padding: 20px 10px 30px;
-    background: #303030;
-    font-family: $font;
-    color: #fff;
-    text-align: center;
-    transition: transform $creditsAT;
-    transform: translate3d(100%,0,0) rotateY(-45deg);
-    will-change: transform;
-    
-    .credits-active & {
-      transition: transform $creditsAT $creditsAT/3;
-      transform: translate3d(0,0,0);
-    }
-    
-    *, *:before, *:after {
-      box-sizing: border-box;
-    }
-    
-    &-close {
-      position: absolute;
-      right: 20px;
-      top: 20px;
-      width: 28px;
-      height: 28px;
-      cursor: pointer;
-      
-      &:before,
-      &:after {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        width: 100%;
-        height: 2px;
-        margin-top: -1px;
-        background: #fff;
-      }
-      &:before {
-        transform: rotate(45deg);
-      }
-      &:after {
-        transform: rotate(-45deg);
-      }
-    }
-    
-    &-heading {
-      text-transform: uppercase;
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
-    
-    &-img {
-      display: block;
-      width: 60%;
-      margin: 0 auto 30px;
-      border-radius: 10px;
-    }
-    
-    &-name {
-      margin-bottom: 20px;
-      font-size: 30px;
-    }
-    
-    &-link {
-      display: block;
-      margin-bottom: 10px;
-      font-size: 24px;
-      color: #fff;
-    }
-    
-    &-blend {
-      font-size: 30px;
-      margin-bottom: 10px;
-    }
-  }
+/*
+	Defines the criteria of the max. 480px wide mobiles' landscape mode and sets the image slider dimensions and centering according to it.
+*/
+@media	screen and (max-device-width: 480px) and (orientation:landscape),
+				screen and (-webkit-min-device-pixel-ratio: 2) and (orientation:landscape) {
+	#threesixty {
+		width:360px;
+		height:225px;
+		margin-left:-180px;
+		margin-top:-113px;
+	}
 }
-
-.example-slider {
-  z-index: 2;
-  transform: translate3d(0,0,0);
-  transition: transform $creditsAT;
-  
-  .credits-active & {
-    transform: translate3d($creditsWidth*-1,0,0) rotateY(10deg) scale(0.9);
-  }
-
-  .fnc-slide {
-
-    &-1 {
-      .fnc-slide__inner,
-      .fnc-slide__mask-inner {
-        background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/blackwidow.jpg');
-      }
-    }
-    &-2 {
-      .fnc-slide__inner,
-      .fnc-slide__mask-inner {
-        background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/captainamerica.jpg');
-      }
-    }
-    &-3 {
-      .fnc-slide__inner,
-      .fnc-slide__mask-inner {
-        background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/ironman-alt.jpg');
-      }
-
-      .fnc-slide__inner:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255,255,255,0.1);
-      }
-    }
-    &-4 {
-      .fnc-slide__inner,
-      .fnc-slide__mask-inner {
-        background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/thor.jpg');
-      }
-
-      .fnc-slide__inner:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.2);
-      }
-    }
-  }
-
-  .fnc-slide__heading,
-  .fnc-slide__action-btn,
-  .fnc-nav__control {
-    font-family: $font;
-  }
+/*
+	Defines the criteria of the max. 480px wide mobiles' portrait mode and sets the image slider dimensions and centering according to it.
+*/
+@media	screen and (max-device-width: 480px) and (orientation:portrait),
+				screen and (-webkit-min-device-pixel-ratio: 2) and (orientation:portrait) {
+	#threesixty {
+		width:320px;
+		height:200px;
+		margin-left:-160px;
+		margin-top:-100px;
+	}
 }
-
-/* COLORFUL SWITCH STYLES 
-   ORIGINAL DEMO - http://codepen.io/suez/pen/WQjwOb */
-$w: 180px;
-$_baseW: 280;
-$h: $w * 120 / $_baseW;
-$br: $w * 50 / $_baseW;
-$outerOffset: 5px;
-$animTime: 0.5s;
-$dotS: $w * 8 / $_baseW;
-$dotLeft: $w * 204 / $_baseW;
-$dotLeftOffset: $w * -125 / $_baseW;
-$offS: $w * 64 / $_baseW;
-$onLeft: $w * 162 / $_baseW;
-$onTop: $w * 35 / $_baseW;
-$onWidth: $w * 30 / $_baseW;
-$onHeight: $w * 56 / $_baseW;
-$cubIn: cubic-bezier(.52,-0.96,.51,1.28);
-$cubOut: cubic-bezier(.67,-0.16,.47,1.61);
-
-@mixin switchOn() {
-  .colorful-switch__checkbox:checked ~ .colorful-switch__label & {
-    @content;
-  }
+/*
+	Makes the image slider invisible by default
+*/
+#threesixty_images {
+	display: none;
 }
-
-.colorful-switch {
-  position: relative;
-  width: $w;
-  height: $h;
-  margin: 0 auto;
-  border-radius: $br;
-  background: #cfcfcf;
-
-  &:before {
-    content: "";
-    z-index: -1;
-    position: absolute;
-    left: -$outerOffset;
-    top: -$outerOffset;
-    width: $w + $outerOffset*2;
-    height: $h + $outerOffset*2;
-    border-radius: $br + $outerOffset;
-    background: #314239;
-    transition: background-color 0.3s;
-  }
-
-  &:hover:before {
-    background: #4C735F;
-  }
-
-  &__checkbox {
-    z-index: -10;
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-  }
-
-  &__label {
-    z-index: 1;
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: $br;
-    cursor: pointer;
-  }
-
-  &__bg {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: $w * 3;
-    height: 100%;
-    background: linear-gradient(90deg, #14DCD6 0, #10E7BD $w, #EF9C29 $w*2, #E76339 100%);
-    transition: transform $animTime;
-    transform: translate3d($w*-2,0,0);
-
-    @include switchOn {
-      transform: translate3d(0,0,0);
-    }
-  }
-
-  &__dot {
-    position: absolute;
-    left: $dotLeft;
-    top: 50%;
-    width: $dotS;
-    height: $dotS;
-    margin-left: $dotS/-2;
-    margin-top: $dotS/-2;
-    border-radius: 50%;
-    background: #fff;
-    transition: transform $animTime;
-    transform: translate3d(0,0,0);
-
-    @include switchOn {
-      transform: translate3d($dotLeftOffset,0,0);
-    }
-  }
-
-  &__on {
-    position: absolute;
-    left: $onLeft;
-    top: $onTop;
-    width: $onWidth;
-    height: $onHeight;
-    transition: transform $animTime;
-    transform: translate3d(0,0,0);
-
-    @include switchOn {
-      transform: translate3d($dotLeftOffset,0,0);
-    }
-
-    &__inner {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      transition: transform $animTime/2 0s $cubIn;
-      transform-origin: 100% 50%;
-      transform: rotate(45deg) scale(0) translateZ(0);
-
-      @include switchOn {
-        transition: transform $animTime/2 $animTime/2 $cubOut;
-        transform: rotate(45deg) scale(1) translateZ(0);
-      }
-
-      &:before,
-      &:after {
-        content: "";
-        position: absolute;
-        border-radius: $dotS/2;
-        background: #fff;
-      }
-      &:before {
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: $dotS+1px;
-      }
-      &:after {
-        right: 0;
-        top: 0;
-        width: $dotS+1px;
-        height: 100%;
-      }
-    }
-  }
-
-  &__off {
-    position: absolute;
-    left: $dotLeft;
-    top: 50%;
-    width: $offS;
-    height: $offS;
-    margin-left: $offS/-2;
-    margin-top: $offS/-2;
-    transition: transform $animTime;
-    transform: translate3d(0,0,0);
-
-    @include switchOn {
-      transform: translate3d($dotLeftOffset,0,0);
-    }
-
-    &:before,
-    &:after {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 100%;
-      height: $dotS;
-      margin-top: $dotS/-2;
-      border-radius: $dotS/2;
-      background: #fff;
-      transition: transform $animTime/2 $animTime/2;
-
-      @include switchOn {
-        transition-delay: 0s;
-      }
-    }
-    &:before {
-      transform: rotate(45deg) scaleX(1) translateZ(0);
-
-      @include switchOn {
-        transform: rotate(45deg) scaleX(0) translateZ(0);
-      }
-    }
-    &:after {
-      transition-timing-function: $cubOut;
-      transform: rotate(-45deg) scaleX(1) translateZ(0);
-
-      @include switchOn {
-        transition-timing-function: ease;
-        transform: rotate(-45deg) scaleX(0) translateZ(0);
-      }
-    }
-  }
+/*
+	Sets every image in the slider to be absolute positioned and dynamically sized.
+*/
+#threesixty img {
+	position:absolute;
+	/* This one fixes the IE positioning bug */
+	top:0;
+	width:100%;
+	height:auto;
+}
+/*
+	Sets the style of the visible current frame of the image slider animation
+*/
+.current-image {
+	visibility:visible;
+	width:100%;
+}
+/*
+	Sets the style of the visible "previous" frame of the image slider animation
+*/
+.previous-image {
+	visibility:hidden;
+	width:0;
+}
+/*
+	Sets the dimensions of the CanvasLoader placeholder <div>, it also centeres it horizontally and vertically inside the wrapper and makes it invisible by default
+*/
+#spinner {
+	position:absolute;
+	left:50%;
+	top:50%;
+	width:90px;
+	height:90px;
+	margin-left:-45px;
+	margin-top:-50px;
+	display:none;
+}
+/*
+	Sets the style of the percentage <span> of the preloader by setting its dimensions and centering it horizontally and vertically 
+*/
+#spinner span {
+	position:absolute;
+	top:50%;
+	width:100%;
+	color:#333;
+	font:0.8em Arial, Verdana, sans;
+	text-align:center;
+	line-height:0.6em;
+	margin-top:-0.3em;
 }
     </style>
     <script type="text/javascript" class="silex-script">
@@ -1172,189 +509,359 @@ var draw = function(){
 };
 
 setInterval(draw, 1000/60);
-    (function() {
-
-  var $$ = function(selector, context) {
-    var context = context || document;
-    var elements = context.querySelectorAll(selector);
-    return [].slice.call(elements);
-  };
-
-  function _fncSliderInit($slider, options) {
-    var prefix = ".fnc-";
-
-    var $slider = $slider;
-    var $slidesCont = $slider.querySelector(prefix + "slider__slides");
-    var $slides = $$(prefix + "slide", $slider);
-    var $controls = $$(prefix + "nav__control", $slider);
-    var $controlsBgs = $$(prefix + "nav__bg", $slider);
-    var $progressAS = $$(prefix + "nav__control-progress", $slider);
-
-    var numOfSlides = $slides.length;
-    var curSlide = 1;
-    var sliding = false;
-    var slidingAT = +parseFloat(getComputedStyle($slidesCont)["transition-duration"]) * 1000;
-    var slidingDelay = +parseFloat(getComputedStyle($slidesCont)["transition-delay"]) * 1000;
-
-    var autoSlidingActive = false;
-    var autoSlidingTO;
-    var autoSlidingDelay = 5000; // default autosliding delay value
-    var autoSlidingBlocked = false;
-
-    var $activeSlide;
-    var $activeControlsBg;
-    var $prevControl;
-
-    function setIDs() {
-      $slides.forEach(function($slide, index) {
-        $slide.classList.add("fnc-slide-" + (index + 1));
-      });
-
-      $controls.forEach(function($control, index) {
-        $control.setAttribute("data-slide", index + 1);
-        $control.classList.add("fnc-nav__control-" + (index + 1));
-      });
-
-      $controlsBgs.forEach(function($bg, index) {
-        $bg.classList.add("fnc-nav__bg-" + (index + 1));
-      });
-    };
-
-    setIDs();
-
-    function afterSlidingHandler() {
-      $slider.querySelector(".m--previous-slide").classList.remove("m--active-slide", "m--previous-slide");
-      $slider.querySelector(".m--previous-nav-bg").classList.remove("m--active-nav-bg", "m--previous-nav-bg");
-
-      $activeSlide.classList.remove("m--before-sliding");
-      $activeControlsBg.classList.remove("m--nav-bg-before");
-      $prevControl.classList.remove("m--prev-control");
-      $prevControl.classList.add("m--reset-progress");
-      var triggerLayout = $prevControl.offsetTop;
-      $prevControl.classList.remove("m--reset-progress");
-
-      sliding = false;
-      var layoutTrigger = $slider.offsetTop;
-
-      if (autoSlidingActive && !autoSlidingBlocked) {
-        setAutoslidingTO();
-      }
-    };
-
-    function performSliding(slideID) {
-      if (sliding) return;
-      sliding = true;
-      window.clearTimeout(autoSlidingTO);
-      curSlide = slideID;
-
-      $prevControl = $slider.querySelector(".m--active-control");
-      $prevControl.classList.remove("m--active-control");
-      $prevControl.classList.add("m--prev-control");
-      $slider.querySelector(prefix + "nav__control-" + slideID).classList.add("m--active-control");
-
-      $activeSlide = $slider.querySelector(prefix + "slide-" + slideID);
-      $activeControlsBg = $slider.querySelector(prefix + "nav__bg-" + slideID);
-
-      $slider.querySelector(".m--active-slide").classList.add("m--previous-slide");
-      $slider.querySelector(".m--active-nav-bg").classList.add("m--previous-nav-bg");
-
-      $activeSlide.classList.add("m--before-sliding");
-      $activeControlsBg.classList.add("m--nav-bg-before");
-
-      var layoutTrigger = $activeSlide.offsetTop;
-
-      $activeSlide.classList.add("m--active-slide");
-      $activeControlsBg.classList.add("m--active-nav-bg");
-
-      setTimeout(afterSlidingHandler, slidingAT + slidingDelay);
-    };
-
-
-
-    function controlClickHandler() {
-      if (sliding) return;
-      if (this.classList.contains("m--active-control")) return;
-      if (options.blockASafterClick) {
-        autoSlidingBlocked = true;
-        $slider.classList.add("m--autosliding-blocked");
-      }
-
-      var slideID = +this.getAttribute("data-slide");
-
-      performSliding(slideID);
-    };
-
-    $controls.forEach(function($control) {
-      $control.addEventListener("click", controlClickHandler);
-    });
-
-    function setAutoslidingTO() {
-      window.clearTimeout(autoSlidingTO);
-      var delay = +options.autoSlidingDelay || autoSlidingDelay;
-      curSlide++;
-      if (curSlide > numOfSlides) curSlide = 1;
-
-      autoSlidingTO = setTimeout(function() {
-        performSliding(curSlide);
-      }, delay);
-    };
-
-    if (options.autoSliding || +options.autoSlidingDelay > 0) {
-      if (options.autoSliding === false) return;
-      
-      autoSlidingActive = true;
-      setAutoslidingTO();
-      
-      $slider.classList.add("m--with-autosliding");
-      var triggerLayout = $slider.offsetTop;
-      
-      var delay = +options.autoSlidingDelay || autoSlidingDelay;
-      delay += slidingDelay + slidingAT;
-      
-      $progressAS.forEach(function($progress) {
-        $progress.style.transition = "transform " + (delay / 1000) + "s";
-      });
-    }
-    
-    $slider.querySelector(".fnc-nav__control:first-child").classList.add("m--active-control");
-
-  };
-
-  var fncSlider = function(sliderSelector, options) {
-    var $sliders = $$(sliderSelector);
-
-    $sliders.forEach(function($slider) {
-      _fncSliderInit($slider, options);
-    });
-  };
-
-  window.fncSlider = fncSlider;
-}());
-
-/* not part of the slider scripts */
-
-/* Slider initialization
-options:
-autoSliding - boolean
-autoSlidingDelay - delay in ms. If audoSliding is on and no value provided, default value is 5000
-blockASafterClick - boolean. If user clicked any sliding control, autosliding won't start again
+    /**
+* We wrap all our code in the jQuery "DOM-ready" function to make sure the script runs only
+* after all the DOM elements are rendered and ready to take action
 */
-fncSlider(".example-slider", {autoSlidingDelay: 4000});
+$(document).ready(function () {
+	// Tells if the app is ready for user interaction
+	var ready = false,
+			// Tells the app if the user is dragging the pointer
+			dragging = false,
+			// Stores the pointer starting X position for the pointer tracking
+			pointerStartPosX = 0,
+			// Stores the pointer ending X position for the pointer tracking
+			pointerEndPosX = 0,
+			// Stores the distance between the starting and ending pointer X position in each time period we are tracking the pointer
+			pointerDistance = 0,
 
-var $demoCont = document.querySelector(".demo-cont");
+			// The starting time of the pointer tracking period
+			monitorStartTime = 0,
+			// The pointer tracking time duration
+			monitorInt = 10,
+			// A setInterval instance used to call the rendering function
+			ticker = 0,
+			// Sets the speed of the image sliding animation
+			speedMultiplier = 10,
+			// CanvasLoader instance variable
+			spinner,
+	
+			// Stores the total amount of images we have in the sequence
+			totalFrames = 180,
+			// The current frame value of the image slider animation
+			currentFrame = 0,
+			// Stores all the loaded image objects
+			frames = [],
+			// The value of the end frame which the currentFrame will be tweened to during the sliding animation
+			endFrame = 0,
+			// We keep track of the loaded images by increasing every time a new image is added to the image slider
+			loadedImages = 0,
 
-[].slice.call(document.querySelectorAll(".fnc-slide__action-btn")).forEach(function($btn) {
-  $btn.addEventListener("click", function() {
-    $demoCont.classList.toggle("credits-active");
-  });
-});
+			// Caching DOM element references
+			$document = $(document),
+			$container = $('#threesixty'),
+			$images = $('#threesixty_images'),
 
-document.querySelector(".demo-cont__credits-close").addEventListener("click", function() {
-  $demoCont.classList.remove("credits-active");
-});
+			// Initial spin demo vars
+			demoMode = false,
+			fakePointer = {
+				x: 0,
+				speed: 4
+			},
+			fakePointerTimer = 0;
+	
+	/**
+	* Adds a "spiral" shaped CanvasLoader instance to the #spinner div
+	*/
+	function addSpinner () {
+		spinner = new CanvasLoader("spinner");
+		spinner.setShape("spiral");
+		spinner.setDiameter(90);
+		spinner.setDensity(90);
+		spinner.setRange(1);
+		spinner.setSpeed(4);
+		spinner.setColor("#333333");
+		// As its hidden and not rendering by default we have to call its show() method
+		spinner.show();
+		// We use the jQuery fadeIn method to slowly fade in the preloader
+		$("#spinner").fadeIn("slow");
+	};
+	
+	/**
+	* Creates a new <li> and loads the next image in the sequence inside it.
+	* With jQuery we add the "load" event handler to the image, so when it's successfully loaded, we call the "imageLoaded" function.
+	*/
+	function loadImage() {
+		// Creates a new <li>
+		var li = document.createElement("li");
+		// Generates the image file name using the incremented "loadedImages" variable
+		var imageName = "https://raw.githubusercontent.com/heartcode/360-Image-Slider/master/img/threesixty_" + (loadedImages + 1) + ".jpg";
+		/*
+			Creates a new <img> and sets its src attribute to point to the file name we generated.
+			It also hides the image by applying the "previous-image" CSS class to it.
+			The image then is added to the <li>.
+		*/
+		var image = $('<img>').attr('src', imageName).addClass("previous-image").appendTo(li);
+		// We add the newly added image object (returned by jQuery) to the "frames" array.
+		frames.push(image);
+		// We add the <li> to the <ol>
+		$images.append(li);
+		/*
+			Adds the "load" event handler to the new image.
+			When the event triggers it calls the "imageLoaded" function.
+		*/
+		$(image).load(function() {
+			imageLoaded();
+		});
+	};
+	
+	/**
+	* It handles the image "load" events.
+	* Each time this function is called it checks if all the images have been loaded or it has to load the next one.
+	* Every time a new image is succesfully loaded, we set the percentage value of the preloader to notify the user about the loading progress.
+	* If all the images are loaded, it hides the preloader using the jQuery "fadeOut" method, which on complete stops the preloader rendering
+	* and calls the "showThreesixty" method, that displays the image slider.
+	*/
+	function imageLoaded() {
+		// Increments the value of the "loadedImages" variable
+		loadedImages++;
+		// Updates the preloader percentage text
+		$("#spinner span").text(Math.floor(loadedImages / totalFrames * 100) + "%");
+		// Checks if the currently loaded image is the last one in the sequence...
+		if (loadedImages == totalFrames) {
+			// ...if so, it makes the first image in the sequence to be visible by removing the "previous-image" class and applying the "current-image" on it
+			frames[0].removeClass("previous-image").addClass("current-image");
+			/*
+				Displays the image slider by using the jQuery "fadeOut" animation and its complete event handler.
+				When the preloader is completely faded, it stops the preloader rendering and calls the "showThreesixty" function to display the images.
+			*/
+			$("#spinner").fadeOut("slow", function(){
+				spinner.hide();
+				showThreesixty();
+			});
+		} else {
+			// ...if not, Loads the next image in the sequence
+			loadImage();
+		}
+	};
+	
+	/**
+	* Displays the images with the "swooshy" spinning effect.
+	* As the endFrame is set to -720, the slider will take 4 complete spin before it stops.
+	* At this point it also sets the application to be ready for the user interaction.
+	*/
+	function showThreesixty () {
+		// Fades in the image slider by using the jQuery "fadeIn" method
+		$images.fadeIn("slow");
+		// Sets the "ready" variable to true, so the app now reacts to user interaction 
+		ready = true;
+		// Sets the endFrame to an initial value...
+		endFrame = -720;
+		// ...so when the animation renders, it will initially take 4 complete spins.
+		if(!demoMode) {
+			refresh();
+		} else {
+			fakePointerTimer = window.setInterval(moveFakePointer, 100);
+		}
+	};
 
-document.querySelector(".js-activate-global-blending").addEventListener("click", function() {
-  document.querySelector(".example-slider").classList.toggle("m--global-blending-active");
+	/*
+	* Moves the fake pointer, so that we can have some demo spinning until the user interferes with their pointer
+	*/
+	function moveFakePointer () {
+		fakePointer.x += fakePointer.speed;
+		trackPointer();
+	};
+
+	/*
+	* Stops the fake pointer moving and lets the user control the spinning
+	*/
+	function quitDemoMode() {
+		window.clearInterval(fakePointerTimer);
+		demoMode = false;
+	};
+	
+	/*
+		We launch the application by...
+		Adding the preloader, and...
+	*/
+	addSpinner();
+	// loading the firt image in the sequence.
+	loadImage();
+	
+	/**
+	* Renders the image slider frame animations.
+	*/
+	function render () {
+		// The rendering function only runs if the "currentFrame" value hasn't reached the "endFrame" one
+		if(currentFrame !== endFrame)
+		{	
+			/*
+				Calculates the 10% of the distance between the "currentFrame" and the "endFrame".
+				By adding only 10% we get a nice smooth and eased animation.
+				If the distance is a positive number, we have to ceil the value, if its a negative number, we have to floor it to make sure
+				that the "currentFrame" value surely reaches the "endFrame" value and the rendering doesn't end up in an infinite loop.
+			*/
+			var frameEasing = endFrame < currentFrame ? Math.floor((endFrame - currentFrame) * 0.1) : Math.ceil((endFrame - currentFrame) * 0.1);
+			// Sets the current image to be hidden
+			hidePreviousFrame();
+			// Increments / decrements the "currentFrame" value by the 10% of the frame distance
+			currentFrame += frameEasing;
+			// Sets the current image to be visible
+			showCurrentFrame();
+		} else {
+			// If the rendering can stop, we stop and clear the ticker
+			window.clearInterval(ticker);
+			ticker = 0;
+		}
+	};
+	
+	/**
+	* Creates a new setInterval and stores it in the "ticker"
+	* By default I set the FPS value to 60 which gives a nice and smooth rendering in newer browsers
+	* and relatively fast machines, but obviously it could be too high for an older architecture.
+	*/
+	function refresh () {
+		// If the ticker is not running already...
+		if (ticker === 0) {
+			// Let's create a new one!
+			ticker = self.setInterval(render, Math.round(1000 / 60));
+		}
+	};
+	
+	/**
+	* Hides the previous frame
+	*/
+	function hidePreviousFrame() {
+		/*
+			Replaces the "current-image" class with the "previous-image" one on the image.
+			It calls the "getNormalizedCurrentFrame" method to translate the "currentFrame" value to the "totalFrames" range (1-180 by default).
+		*/
+		frames[getNormalizedCurrentFrame()].removeClass("current-image").addClass("previous-image");
+	};
+	
+	/**
+	* Displays the current frame
+	*/
+	function showCurrentFrame() {
+		/*
+			Replaces the "current-image" class with the "previous-image" one on the image.
+			It calls the "getNormalizedCurrentFrame" method to translate the "currentFrame" value to the "totalFrames" range (1-180 by default).
+		*/
+		frames[getNormalizedCurrentFrame()].removeClass("previous-image").addClass("current-image");
+	};
+	
+	/**
+	* Returns the "currentFrame" value translated to a value inside the range of 0 and "totalFrames"
+	*/
+	function getNormalizedCurrentFrame() {
+		var c = -Math.ceil(currentFrame % totalFrames);
+		if (c < 0) c += (totalFrames - 1);
+		return c;
+	};
+	
+	/**
+	* Returns a simple event regarding the original event is a mouse event or a touch event.
+	*/
+	function getPointerEvent(event) {
+		return event.originalEvent.targetTouches ? event.originalEvent.targetTouches[0] : event;
+	};
+	
+	/**
+	* Adds the jQuery "mousedown" event to the image slider wrapper.
+	*/
+	$container.on("mousedown", function (event) {
+		quitDemoMode();
+
+		// Prevents the original event handler behaciour
+		event.preventDefault();
+		// Stores the pointer x position as the starting position
+		pointerStartPosX = getPointerEvent(event).pageX;
+		// Tells the pointer tracking function that the user is actually dragging the pointer and it needs to track the pointer changes
+		dragging = true;
+	});
+	
+	/**
+	* Adds the jQuery "mouseup" event to the document. We use the document because we want to let the user to be able to drag
+	* the mouse outside the image slider as well, providing a much bigger "playground".
+	*/
+	$document.on("mouseup", function (event){
+		// Prevents the original event handler behaciour
+		event.preventDefault();
+		// Tells the pointer tracking function that the user finished dragging the pointer and it doesn't need to track the pointer changes anymore
+		dragging = false;
+	});
+	
+	/**
+	* Adds the jQuery "mousemove" event handler to the document. By using the document again we give the user a better user experience
+	* by providing more playing area for the mouse interaction.
+	*/
+	$document.on("mousemove", function (event){
+		if(demoMode) {
+			return;
+		}
+
+		// Prevents the original event handler behaciour
+		event.preventDefault();
+		// Starts tracking the pointer X position changes
+		trackPointer(event);
+	});
+	
+	/**
+	*
+	*/
+	$container.on("touchstart", function (event) {
+		quitDemoMode();
+
+		// Prevents the original event handler behaciour
+		event.preventDefault();
+		// Stores the pointer x position as the starting position
+		pointerStartPosX = getPointerEvent(event).pageX;
+		// Tells the pointer tracking function that the user is actually dragging the pointer and it needs to track the pointer changes
+		dragging = true;
+	});
+	
+	/**
+	*
+	*/
+	$container.on("touchmove", function (event) {
+		// Prevents the original event handler behaciour
+		event.preventDefault();
+		// Starts tracking the pointer X position changes
+		trackPointer(event);
+	});
+	
+	/**
+	*
+	*/
+	$container.on("touchend", function (event) {
+		// Prevents the original event handler behaciour
+		event.preventDefault();
+		// Tells the pointer tracking function that the user finished dragging the pointer and it doesn't need to track the pointer changes anymore
+		dragging = false;
+	});
+	
+	/**
+	* Tracks the pointer X position changes and calculates the "endFrame" for the image slider frame animation.
+	* This function only runs if the application is ready and the user really is dragging the pointer; this way we can avoid unnecessary calculations and CPU usage.
+	*/
+	function trackPointer(event) {
+		var userDragging = ready && dragging ? true : false;
+		var demoDragging = demoMode;
+
+		if(userDragging || demoDragging) {
+			
+			// Stores the last x position of the pointer
+			pointerEndPosX = userDragging ? getPointerEvent(event).pageX : fakePointer.x;
+
+			// Checks if there is enough time past between this and the last time period of tracking
+			if(monitorStartTime < new Date().getTime() - monitorInt) {
+				// Calculates the distance between the pointer starting and ending position during the last tracking time period
+				pointerDistance = pointerEndPosX - pointerStartPosX;
+				// Calculates the endFrame using the distance between the pointer X starting and ending positions and the "speedMultiplier" values
+				endFrame = currentFrame + Math.ceil((totalFrames - 1) * speedMultiplier * (pointerDistance / $container.width()));
+				// Updates the image slider frame animation
+				refresh();
+				// restarts counting the pointer tracking period
+				monitorStartTime = new Date().getTime();
+				// Stores the the pointer X position as the starting position (because we started a new tracking period)
+
+				pointerStartPosX = userDragging ? getPointerEvent(event).pageX : fakePointer.x;
+			}
+		} else {
+			return;
+		}
+	};
 });
     </script>
     <style class="silex-inline-styles" type="text/css">
@@ -1480,7 +987,7 @@ document.querySelector(".js-activate-global-blending").addEventListener("click",
         }
         .silex-id-1484713126784-0 {
             width: 905px; 
-            top: 348px; 
+            top: 298px; 
             left: 15px; 
             padding: 10px; 
             min-height: 702px; 
@@ -1600,7 +1107,7 @@ document.querySelector(".js-activate-global-blending").addEventListener("click",
     </style>
     <title>A&amp;A Corvette Performance</title>
     <script type="text/javascript" class="silex-json-styles">
-        [{"desktop":{"body-initial":{"background-color":"rgba(25,25,25,0.9725490196078431)","background-image":"url('images/c7-background-wf-ghost3.jpg')","background-position":"center center","background-attachment":"fixed","background-size":"cover","background-repeat":"no-repeat"},"silex-id-1474394621033-3":{"min-height":"1055px","top":"156px","left":"0px"},"silex-id-1474394621032-2":{"min-height":"770px","background-color":"rgba(38,38,38,0.7764705882352941)","top":"0px","left":"0px","width":"960px","border-width":"2px 2px 2px 2px ","border-style":"solid"},"silex-id-1474394605264-1":{"min-height":"100px","top":"100px","left":"100px"},"silex-id-1474394605263-0":{"min-height":"100px","background-color":"rgba(38,38,38,0.7764705882352941)","border-width":"2px 2px 2px 2px ","border-style":"solid","top":"0px","left":"0px","width":"960px"},"silex-id-1442914737143-3":{"width":"450px","top":"58px","left":"20px","min-height":"84px","background-color":"transparent","text-shadow":"1px 1px 2px black, 0 0 5px, 0 0 5px white"},"silex-id-1484694494094-5":{"min-height":"140px","width":"395px","top":"-25px","left":"-26px"},"silex-id-1484694513764-6":{"min-height":"156px","background-color":"rgba(38,38,38,0.7764705882352941)","top":"0px","left":"0px","width":"960px","border-width":"2px 2px 2px 2px ","border-style":"solid"},"silex-id-1484694513764-7":{"min-height":"156px","top":"100px","left":"NaNpx"},"silex-id-1484694761251-9":{"width":"216px","top":"5px","left":"729px","padding":"5px","min-height":"61px","background-position":"center center","background-repeat":"no-repeat","background-size":"cover","background-color":"transparent","text-shadow":"2px 3px #000000"},"silex-id-1484694836153-10":{"min-height":"100px","width":"100px","top":"100px","left":"456.18181800842285px"},"silex-id-1484694847072-11":{"min-height":"200px","width":"530px","top":"-22px","left":"425px"},"silex-id-1484695138735-12":{"min-height":"65px","width":"805px","top":"107px","left":"84px"},"silex-id-1484713126784-0":{"width":"905px","top":"348px","left":"15px","padding":"10px","min-height":"702px","background-color":"transparent","background-image":"","background-repeat":"no-repeat","background-size":"contain","background-position":"center center","background-attachment":"fixed"},"silex-id-1484713455061-1":{"min-height":"30px","width":"105px","top":"8px","left":"191px","background-image":"","background-position":"center center","background-size":"cover","background-repeat":"no-repeat"},"silex-id-1484713464106-2":{"min-height":"30px","width":"105px","top":"8px","left":"311px"},"silex-id-1484713474842-3":{"min-height":"30px","width":"105px","top":"8px","left":"430px"},"silex-id-1484713493273-4":{"min-height":"30px","width":"150px","top":"8px","left":"26px"},"silex-id-1484713959308-5":{"min-height":"84px","width":"236px","top":"19px","left":"550px"},"silex-id-1484713981534-6":{"min-height":"84px","width":"236px","top":"19px","left":"550px"},"silex-id-1484714014334-7":{"min-height":"73px","width":"213px","top":"27px","left":"550px"},"silex-id-1484880858860-0":{"min-height":"200px","width":"400px","top":"44px","left":"286px","opacity":"0.3"},"silex-id-1484880992455-1":{"min-height":"302px","width":"465px","top":"89px","left":"11px","opacity":""},"silex-id-1484881069005-2":{"min-height":"200px","width":"400px","top":"318px","left":"32px","opacity":"0.3"},"silex-id-1484881098920-3":{"min-height":"302px","width":"552px","top":"89px","left":"11px"},"silex-id-1484881179416-4":{"min-height":"100px","width":"100px","top":"216.73294830322266px","left":"356.3210220336914px"},"silex-id-1484881186596-5":{"min-height":"100px","width":"100px","top":"216.73294830322266px","left":"356.3210220336914px"},"silex-id-1484881196986-6":{"min-height":"305px","width":"467px","top":"89px","left":"11px"},"silex-id-1484881420229-8":{"width":"449px","top":"57px","left":"476px","padding":"10px","min-height":"672px","background-color":"transparent","background-image":"","background-repeat":"no-repeat","background-size":"cover","background-position":"center center"},"silex-id-1484886257165-0":{"min-height":"65px","width":"329px","top":"9px","left":"597px"},"silex-id-1484886452837-1":{"width":"265px","top":"71px","left":"345px","padding":"5px","color":"white","min-height":"20px","background-color":"transparent","background-attachment":"fixed","background-size":"cover","text-shadow":"1px 1px 2px black, 0 0 5px red, 0 0 10px black"},"silex-id-1484896849545-0":{"min-height":"341px","width":"434px","background-color":"rgb(255, 255, 255)","top":"56px","left":"483px"},"silex-id-1484930199670-0":{"min-height":"200px","width":"400px","background-color":"rgb(255, 255, 255)","top":"88px","left":"30px"},"silex-id-1484931813740-1":{"width":"300px","top":"8px","left":"318px","padding":"5px","min-height":"20px","background-position":"center center","background-repeat":"no-repeat","background-size":"cover","background-color":"transparent","text-shadow":"2px 3px #000000"},"silex-id-1484931914697-2":{"width":"350px","top":"39px","left":"294px","padding":"5px","min-height":"20px","background-position":"center center","background-repeat":"no-repeat","background-size":"cover","background-color":"transparent","text-shadow":"2px 3px #000000"},"silex-id-1484934138271-3":{"min-height":"30px","width":"232px","top":"8px","left":"550px"},"silex-id-1484935604259-4":{"min-height":"100px","width":"100px","top":"100px","left":"408px"},"silex-id-1484935702411-5":{"min-height":"100px","width":"100px","top":"100px","left":"408px"},"silex-id-1484935941919-7":{"min-height":"283px","width":"473px","top":"85px","left":"23px"},"silex-id-1484936428776-8":{"width":"450px","top":"58px","left":"20px","min-height":"111px","background-color":"transparent","text-shadow":"1px 1px 2px black, 0 0 5px, 0 0 5px white"},"silex-id-1484936472467-9":{"width":"450px","top":"58px","left":"20px","min-height":"22px","background-color":"transparent","text-shadow":"1px 1px 2px black, 0 0 5px, 0 0 5px white"},"silex-id-1484941032183-0":{"min-height":"51px","width":"253px","background-color":"rgb(255, 255, 255)","top":"1150px","left":"338px"},"silex-id-1484941167087-1":{"min-height":"300px","width":"100px","background-color":"transparent","top":"234px","left":"416px","opacity":"0.55"},"silex-id-1485055936328-0":{"min-height":"235px","width":"905px","background-color":"rgba(255,255,255,0.4235294117647059)","top":"43px","left":"15px"}},"mobile":{}}]
+        [{"desktop":{"body-initial":{"background-color":"rgba(25,25,25,0.9725490196078431)","background-image":"url('images/c7-background-wf-ghost3.jpg')","background-position":"center center","background-attachment":"fixed","background-size":"cover","background-repeat":"no-repeat"},"silex-id-1474394621033-3":{"min-height":"1055px","top":"156px","left":"0px"},"silex-id-1474394621032-2":{"min-height":"770px","background-color":"rgba(38,38,38,0.7764705882352941)","top":"0px","left":"0px","width":"960px","border-width":"2px 2px 2px 2px ","border-style":"solid"},"silex-id-1474394605264-1":{"min-height":"100px","top":"100px","left":"100px"},"silex-id-1474394605263-0":{"min-height":"100px","background-color":"rgba(38,38,38,0.7764705882352941)","border-width":"2px 2px 2px 2px ","border-style":"solid","top":"0px","left":"0px","width":"960px"},"silex-id-1442914737143-3":{"width":"450px","top":"58px","left":"20px","min-height":"84px","background-color":"transparent","text-shadow":"1px 1px 2px black, 0 0 5px, 0 0 5px white"},"silex-id-1484694494094-5":{"min-height":"140px","width":"395px","top":"-25px","left":"-26px"},"silex-id-1484694513764-6":{"min-height":"156px","background-color":"rgba(38,38,38,0.7764705882352941)","top":"0px","left":"0px","width":"960px","border-width":"2px 2px 2px 2px ","border-style":"solid"},"silex-id-1484694513764-7":{"min-height":"156px","top":"100px","left":"NaNpx"},"silex-id-1484694761251-9":{"width":"216px","top":"5px","left":"729px","padding":"5px","min-height":"61px","background-position":"center center","background-repeat":"no-repeat","background-size":"cover","background-color":"transparent","text-shadow":"2px 3px #000000"},"silex-id-1484694836153-10":{"min-height":"100px","width":"100px","top":"100px","left":"456.18181800842285px"},"silex-id-1484694847072-11":{"min-height":"200px","width":"530px","top":"-22px","left":"425px"},"silex-id-1484695138735-12":{"min-height":"65px","width":"805px","top":"107px","left":"84px"},"silex-id-1484713126784-0":{"width":"905px","top":"298px","left":"15px","padding":"10px","min-height":"702px","background-color":"transparent","background-image":"","background-repeat":"no-repeat","background-size":"contain","background-position":"center center","background-attachment":"fixed"},"silex-id-1484713455061-1":{"min-height":"30px","width":"105px","top":"8px","left":"191px","background-image":"","background-position":"center center","background-size":"cover","background-repeat":"no-repeat"},"silex-id-1484713464106-2":{"min-height":"30px","width":"105px","top":"8px","left":"311px"},"silex-id-1484713474842-3":{"min-height":"30px","width":"105px","top":"8px","left":"430px"},"silex-id-1484713493273-4":{"min-height":"30px","width":"150px","top":"8px","left":"26px"},"silex-id-1484713959308-5":{"min-height":"84px","width":"236px","top":"19px","left":"550px"},"silex-id-1484713981534-6":{"min-height":"84px","width":"236px","top":"19px","left":"550px"},"silex-id-1484714014334-7":{"min-height":"73px","width":"213px","top":"27px","left":"550px"},"silex-id-1484880858860-0":{"min-height":"200px","width":"400px","top":"44px","left":"286px","opacity":"0.3"},"silex-id-1484880992455-1":{"min-height":"302px","width":"465px","top":"89px","left":"11px","opacity":""},"silex-id-1484881069005-2":{"min-height":"200px","width":"400px","top":"318px","left":"32px","opacity":"0.3"},"silex-id-1484881098920-3":{"min-height":"302px","width":"552px","top":"89px","left":"11px"},"silex-id-1484881179416-4":{"min-height":"100px","width":"100px","top":"216.73294830322266px","left":"356.3210220336914px"},"silex-id-1484881186596-5":{"min-height":"100px","width":"100px","top":"216.73294830322266px","left":"356.3210220336914px"},"silex-id-1484881196986-6":{"min-height":"305px","width":"467px","top":"89px","left":"11px"},"silex-id-1484881420229-8":{"width":"449px","top":"57px","left":"476px","padding":"10px","min-height":"672px","background-color":"transparent","background-image":"","background-repeat":"no-repeat","background-size":"cover","background-position":"center center"},"silex-id-1484886257165-0":{"min-height":"65px","width":"329px","top":"9px","left":"597px"},"silex-id-1484886452837-1":{"width":"265px","top":"71px","left":"345px","padding":"5px","color":"white","min-height":"20px","background-color":"transparent","background-attachment":"fixed","background-size":"cover","text-shadow":"1px 1px 2px black, 0 0 5px red, 0 0 10px black"},"silex-id-1484896849545-0":{"min-height":"341px","width":"434px","background-color":"rgb(255, 255, 255)","top":"56px","left":"483px"},"silex-id-1484930199670-0":{"min-height":"200px","width":"400px","background-color":"rgb(255, 255, 255)","top":"88px","left":"30px"},"silex-id-1484931813740-1":{"width":"300px","top":"8px","left":"318px","padding":"5px","min-height":"20px","background-position":"center center","background-repeat":"no-repeat","background-size":"cover","background-color":"transparent","text-shadow":"2px 3px #000000"},"silex-id-1484931914697-2":{"width":"350px","top":"39px","left":"294px","padding":"5px","min-height":"20px","background-position":"center center","background-repeat":"no-repeat","background-size":"cover","background-color":"transparent","text-shadow":"2px 3px #000000"},"silex-id-1484934138271-3":{"min-height":"30px","width":"232px","top":"8px","left":"550px"},"silex-id-1484935604259-4":{"min-height":"100px","width":"100px","top":"100px","left":"408px"},"silex-id-1484935702411-5":{"min-height":"100px","width":"100px","top":"100px","left":"408px"},"silex-id-1484935941919-7":{"min-height":"283px","width":"473px","top":"85px","left":"23px"},"silex-id-1484936428776-8":{"width":"450px","top":"58px","left":"20px","min-height":"111px","background-color":"transparent","text-shadow":"1px 1px 2px black, 0 0 5px, 0 0 5px white"},"silex-id-1484936472467-9":{"width":"450px","top":"58px","left":"20px","min-height":"22px","background-color":"transparent","text-shadow":"1px 1px 2px black, 0 0 5px, 0 0 5px white"},"silex-id-1484941032183-0":{"min-height":"51px","width":"253px","background-color":"rgb(255, 255, 255)","top":"1150px","left":"338px"},"silex-id-1484941167087-1":{"min-height":"300px","width":"100px","background-color":"transparent","top":"234px","left":"416px","opacity":"0.55"},"silex-id-1485055936328-0":{"min-height":"235px","width":"905px","background-color":"rgba(255,255,255,0.4235294117647059)","top":"43px","left":"15px"}},"mobile":{}}]
     </script>
 
 
@@ -1810,6 +1317,10 @@ document.querySelector(".js-activate-global-blending").addEventListener("click",
 
 
 
+
+
+
+
     <style id="current-page-style">
         .page-home{display:inherit; }
     </style>
@@ -1984,178 +1495,37 @@ document.querySelector(".js-activate-global-blending").addEventListener("click",
             <div data-silex-type="image" class="editable-style silex-id-1484935941919-7 image-element page-c7 paged-element animated zoomIn" data-silex-id="silex-id-1484935941919-7"><img src="images/c7supercharger.png" class="silex-element-content"></div>
             <div data-silex-id="silex-id-1484936428776-8" class="editable-style text-element silex-id-1484936428776-8 page-c6 paged-element" data-silex-type="text">
                 <div class="silex-element-content normal">
-                    <div style="text-align: center;"><font face="arial, sans-serif" size="7">C6</font><font size="5" face="arial, sans-serif"> </font><font face="arial, sans-serif" size="7">CORVETTE SUPERCHARGERS</font></div>
+                    <div style="text-align: center;"><font size="5"><font face="arial, sans-serif">C6</font><font face="arial, sans-serif"> </font><font face="arial, sans-serif">CORVETTE SUPERCHARGERS</font></font>
+                    </div>
                 </div>
             </div>
             <div data-silex-id="silex-id-1484936472467-9" class="editable-style text-element silex-id-1484936472467-9 page-c7 paged-element" data-silex-type="text">
                 <div class="silex-element-content normal">
-                    <div style="text-align: center;"><font face="arial, sans-serif" size="7">C7</font><font size="5" face="arial, sans-serif"> </font><font face="arial, sans-serif" size="7">CORVETTE SUPERCHARGERS</font></div>
+                    <div style="text-align: center;"><font size="5"><font face="arial, sans-serif">C7</font><font face="arial, sans-serif"> </font><font face="arial, sans-serif">CORVETTE SUPERCHARGERS</font></font>
+                    </div>
                 </div>
             </div>
 
 
             <div data-silex-id="silex-id-1442914737143-3" class="editable-style silex-id-1442914737143-3 text-element page-c5 paged-element" data-silex-type="text">
                 <div class="silex-element-content normal">
-                    <div style="text-align: center;"><font face="arial, sans-serif" size="7">C5</font><font size="5" face="arial, sans-serif"> </font><font face="arial, sans-serif" size="7">CORVETTE SUPERCHARGERS</font></div>
+                    <div style="text-align: center;"><font size="5"><font face="arial, sans-serif">C5</font><font face="arial, sans-serif"> </font><font face="arial, sans-serif">CORVETTE SUPERCHARGERS</font></font>
+                    </div>
                 </div>
             </div>
 
             <div data-silex-type="html" class="editable-style silex-id-1485055936328-0 html-element page-home paged-element" data-silex-id="silex-id-1485055936328-0">
                 <div class="silex-element-content">
-                    <!-- 
-Please note, that you can apply .m--global-blending-active to .fnc-slider 
-to enable blend-mode for all background-images or apply .m--blend-bg-active
-to some specific slides (.fnc-slide). It's disabled by default in this demo,
-because it requires specific images, where more than 50% of bg is transparent or monotone
--->
-                    <div class="demo-cont">
-                        <!-- slider start -->
-                        <div class="fnc-slider example-slider">
-                            <div class="fnc-slider__slides">
-                                <!-- slide start -->
-                                <div class="fnc-slide m--blend-green m--active-slide">
-                                    <div class="fnc-slide__inner">
-                                        <div class="fnc-slide__mask">
-                                            <div class="fnc-slide__mask-inner"></div>
-                                        </div>
-                                        <div class="fnc-slide__content">
-                                            <h2 class="fnc-slide__heading">
-              <div class="fnc-slide__heading-line">
-                <span>Black</span>
-              </div>
-              <div class="fnc-slide__heading-line">
-                <span>Widow</span>
-              </div>
-            </h2>
-                                            <button type="button" class="fnc-slide__action-btn">
-                                                Credits
-                                                <span data-text="Credits">Credits</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- slide end -->
-                                <!-- slide start -->
-                                <div class="fnc-slide m--blend-dark">
-                                    <div class="fnc-slide__inner">
-                                        <div class="fnc-slide__mask">
-                                            <div class="fnc-slide__mask-inner"></div>
-                                        </div>
-                                        <div class="fnc-slide__content">
-                                            <h2 class="fnc-slide__heading">
-              <div class="fnc-slide__heading-line">
-                <span>Captain</span>
-              </div>
-              <div class="fnc-slide__heading-line">
-                <span>America</span>
-              </div>
-            </h2>
-                                            <button type="button" class="fnc-slide__action-btn">
-                                                Credits
-                                                <span data-text="Credits">Credits</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- slide end -->
-                                <!-- slide start -->
-                                <div class="fnc-slide m--blend-red">
-                                    <div class="fnc-slide__inner">
-                                        <div class="fnc-slide__mask">
-                                            <div class="fnc-slide__mask-inner"></div>
-                                        </div>
-                                        <div class="fnc-slide__content">
-                                            <h2 class="fnc-slide__heading">
-              <div class="fnc-slide__heading-line">
-                <span>Iron</span>
-              </div>
-              <div class="fnc-slide__heading-line">
-                <span>Man</span>
-              </div>
-            </h2>
-                                            <button type="button" class="fnc-slide__action-btn">
-                                                Credits
-                                                <span data-text="Credits">Credits</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- slide end -->
-                                <!-- slide start -->
-                                <div class="fnc-slide m--blend-blue">
-                                    <div class="fnc-slide__inner">
-                                        <div class="fnc-slide__mask">
-                                            <div class="fnc-slide__mask-inner"></div>
-                                        </div>
-                                        <div class="fnc-slide__content">
-                                            <h2 class="fnc-slide__heading">
-              <div class="fnc-slide__heading-line">
-                <span>Thor</span>
-              </div>
-              <div class="fnc-slide__heading-line">
-                <span>Just Thor</span>
-              </div>
-            </h2>
-                                            <button type="button" class="fnc-slide__action-btn">
-                                                Credits
-                                                <span data-text="Credits">Credits</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- slide end -->
-                            </div>
-                            <nav class="fnc-nav">
-                                <div class="fnc-nav__bgs">
-                                    <div class="fnc-nav__bg m--navbg-green m--active-nav-bg"></div>
-                                    <div class="fnc-nav__bg m--navbg-dark"></div>
-                                    <div class="fnc-nav__bg m--navbg-red"></div>
-                                    <div class="fnc-nav__bg m--navbg-blue"></div>
-                                </div>
-                                <div class="fnc-nav__controls">
-                                    <button class="fnc-nav__control">
-                                        Black Widow
-                                        <span class="fnc-nav__control-progress"></span>
-                                    </button>
-                                    <button class="fnc-nav__control">
-                                        Captain America
-                                        <span class="fnc-nav__control-progress"></span>
-                                    </button>
-                                    <button class="fnc-nav__control">
-                                        Iron Man
-                                        <span class="fnc-nav__control-progress"></span>
-                                    </button>
-                                    <button class="fnc-nav__control">
-                                        Thor
-                                        <span class="fnc-nav__control-progress"></span>
-                                    </button>
-                                </div>
-                            </nav>
+                    <div id="threesixty">
+                        <div id="spinner">
+                            <span>0%</span>
                         </div>
-                        <!-- slider end -->
-                        <div class="demo-cont__credits">
-                            <div class="demo-cont__credits-close"></div>
-                            <h2 class="demo-cont__credits-heading">Made by</h2>
-                            <img src="//s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg" alt="" class="demo-cont__credits-img">
-                            <h3 class="demo-cont__credits-name">Nikolay Talanov</h3>
-                            <a href="http://codepen.io/suez/" target="_blank" class="demo-cont__credits-link">My codepen</a>
-                            <a href="https://twitter.com/NikolayTalanov" target="_blank" class="demo-cont__credits-link">My twitter</a>
-                            <h2 class="demo-cont__credits-heading">Based on</h2>
-                            <a href="https://dribbble.com/shots/2375246-Fashion-Butique-slider-animation" target="_blank" class="demo-cont__credits-link">Concept by Kreativa Studio</a>
-                            <h4 class="demo-cont__credits-blend">Global Blend Mode</h4>
-                            <div class="colorful-switch">
-                                <input type="checkbox" class="colorful-switch__checkbox js-activate-global-blending" id="colorful-switch-cb">
-                                <label class="colorful-switch__label" for="colorful-switch-cb">
-                                    <span class="colorful-switch__bg"></span>
-                                    <span class="colorful-switch__dot"></span>
-                                    <span class="colorful-switch__on">
-          <span class="colorful-switch__on__inner"></span>
-                                    </span>
-                                    <span class="colorful-switch__off"></span>
-                                </label>
-                            </div>
-                        </div>
+                        <ol id="threesixty_images"></ol>
                     </div>
+
+                    <script src="js/heartcode-canvasloader-min.js"></script>
+                    <script src="js/jquery-1.11.0.min.js"></script>
+                    <script src="js/threesixty.js"></script>
                 </div>
             </div>
         </div>
@@ -2168,6 +1538,10 @@ because it requires specific images, where more than 50% of bg is transparent or
 
         </div>
     </div>
+
+
+
+
 
 
 
